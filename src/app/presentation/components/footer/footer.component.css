@@ -1,8 +1,17 @@
-a {
-    color: #FFF;
-    text-decoration: none;
+footer {
+    background-color: #373636;
+    border-top-left-radius: 30px;
+    border-top-right-radius: 30px;
+    position: relative;
+    bottom: 0;
+    left: 0;
+    right: 0;
 }
 
-a:hover{
-    color: #000;
+.container{
+    padding: 40px;
+}
+
+p, a, h2{
+    color: #C6BDBD;
 }

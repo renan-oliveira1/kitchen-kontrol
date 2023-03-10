@@ -2,11 +2,10 @@
     background-color: #b30000;
     color: #4444;
     width: 100%;
-    height: 8%;
 }
 
 nav{
-    position: sticky;
+    position: fixed;
 }
 
 .left{
