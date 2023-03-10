@@ -1,8 +1,8 @@
 .redTheme{
-    background-color: #b30000;
+    background-color: #873E3E;
     color: #4444;
     width: 100%;
-    
+
 }
 
 nav{
@@ -36,11 +36,13 @@ nav{
 }
 
 a {
-    color: #FFF;
+    color: #000;
     text-decoration: none;
+  font-family: 'Café Françoise', sans-serif;
+  font-size: 25px;
 }
 
 a:hover{
-    color: #000;
+    color: #FFF;
 }
 

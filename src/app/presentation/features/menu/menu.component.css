@@ -31,6 +31,24 @@
     width: 1000px;
 }
 
-.doisSabores{
-    background-image: url("/assets/icons/sabores.png");
+.imgButton{
+  border: none;
+  background: transparent;
+  position: relative;
 }
+.imgButton img{
+  height: 280px;
+  position: relative;
+}
+
+.float{
+	position:fixed;
+	width:60px;
+	height:60px;
+	bottom:40px;
+	right:40px;
+	border-radius:50px;
+	box-shadow: 2px 2px 3px;
+}
+
+
