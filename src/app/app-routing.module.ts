@@ -1,11 +1,11 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { MenuComponent } from './components/menu/menu.component';
-import { KitchenComponent } from './components/kitchen/kitchen.component';
-import { BillComponent } from './components/bill/bill.component';
-import { ManagerComponent } from './components/manager/manager.component';
-import { HomeComponent } from './components/home/home.component';
-import { OrderPipelineComponent } from './components/order-pipeline/order-pipeline.component';
+import { MenuComponent } from './presentation/features/menu/menu.component';
+import { KitchenComponent } from './presentation/features/kitchen/kitchen.component';
+import { BillComponent } from './presentation/features/bill/bill.component';
+import { ManagerComponent } from './presentation/features/manager/manager.component';
+import { HomeComponent } from './presentation/features/home/home.component';
+import { OrderPipelineComponent } from './presentation/features/order-pipeline/order-pipeline.component';
 
 const routes: Routes = [
   {path: 'order', component: OrderPipelineComponent},
