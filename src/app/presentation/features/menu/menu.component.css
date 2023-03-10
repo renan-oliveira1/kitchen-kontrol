@@ -1,0 +1,36 @@
+.pizzaLogo{
+    padding-top: 100px;
+    padding-bottom: 100px;
+   width: 300px;
+   position:static;
+}
+
+.main{
+    background-image: url("/assets/imgs/background4.png");
+}
+
+.pizzaIcon{
+    width: 75px;
+    position: relative;
+}
+
+.category{
+    background-color: #b30000;
+    border-color: #b30000;
+    border-radius: 50px;
+}
+
+.categoryText p{
+    white-space: nowrap;
+    background-color: #b30000;
+    border-color: #b30000;
+    border-radius: 50px;
+}
+
+.imageIcon{
+    width: 1000px;
+}
+
+.doisSabores{
+    background-image: url("/assets/icons/sabores.png");
+}

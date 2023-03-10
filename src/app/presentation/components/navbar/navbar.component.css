@@ -2,10 +2,16 @@
     background-color: #b30000;
     color: #4444;
     width: 100%;
+    
 }
 
 nav{
     position: fixed;
+    border-color: #462e29;
+    border-style: solid;
+    border-width: 3px;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
 }
 
 .left{
