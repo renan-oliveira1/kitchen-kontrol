@@ -1,0 +1,159 @@
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-image: url("/assets/imgs/background4.png");
+}
+
+svg {
+  height: 200px;
+  width: 200px;
+}
+
+.pizza {
+  fill: #6d4524;
+  stroke: rgb(0, 0, 0);
+  stroke-width: 2px;
+  transform-origin: right bottom;
+  transform-box: fill-box;
+}
+
+.cheese {
+  fill: #faa65e;
+  transform-origin: right bottom;
+  transform-box: fill-box;
+}
+
+.pepperoni {
+  fill: #d95150;
+}
+
+.slice2,
+.cheese2 {
+  -webkit-transform: rotate(45deg);
+  -moz-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  -o-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+
+.slice3,
+.cheese3 {
+  -webkit-transform: rotate(90deg);
+  -moz-transform: rotate(90deg);
+  -ms-transform: rotate(90deg);
+  -o-transform: rotate(90deg);
+  transform: rotate(90deg);
+}
+
+.slice4,
+.cheese4 {
+  -webkit-transform: rotate(135deg);
+  -moz-transform: rotate(135deg);
+  -ms-transform: rotate(135deg);
+  -o-transform: rotate(135deg);
+  transform: rotate(135deg);
+}
+
+.slice5,
+.cheese5 {
+  -webkit-transform: rotate(180deg);
+  -moz-transform: rotate(180deg);
+  -ms-transform: rotate(180deg);
+  -o-transform: rotate(180deg);
+  transform: rotate(180deg);
+}
+
+.slice6,
+.cheese6 {
+  -webkit-transform: rotate(225deg);
+  -moz-transform: rotate(225deg);
+  -ms-transform: rotate(225deg);
+  -o-transform: rotate(225deg);
+  transform: rotate(225deg);
+}
+
+.slice7,
+.cheese7 {
+  -webkit-transform: rotate(270deg);
+  -moz-transform: rotate(270deg);
+  -ms-transform: rotate(270deg);
+  -o-transform: rotate(270deg);
+  transform: rotate(270deg);
+}
+
+.slice8,
+.cheese8 {
+  -webkit-transform: rotate(-45deg);
+  -moz-transform: rotate(-45deg);
+  -ms-transform: rotate(-45deg);
+  -o-transform: rotate(-45deg);
+  transform: rotate(-45deg);
+}
+
+.part1 {
+  animation: loader 1s ease-in-out forwards infinite;
+  opacity: 1;
+}
+
+.part2 {
+  animation: loader 1s ease-in-out forwards 0.1s infinite;
+  opacity: 1;
+}
+
+.part3 {
+  animation: loader 1s ease-in-out forwards 0.15s infinite;
+  opacity: 1;
+}
+
+.part4 {
+  animation: loader 1s ease-in-out forwards 0.2s infinite;
+  opacity: 1;
+}
+
+.part5 {
+  animation: loader 1s ease-in-out forwards 0.25s infinite;
+  opacity: 1;
+}
+
+.part6 {
+  animation: loader 1s ease-in-out forwards 0.30s infinite;
+  opacity: 1;
+}
+
+.part7 {
+  animation: loader 1s ease-in-out forwards 0.35s infinite;
+  opacity: 1;
+}
+
+.part8 {
+  animation: loader 1s ease-in-out forwards 0.40s infinite;
+  opacity: 1;
+}
+
+@keyframes loader {
+  0% {
+    opacity: 1;
+  }
+  49% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+  99% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}

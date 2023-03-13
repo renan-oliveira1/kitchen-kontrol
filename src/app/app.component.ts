@@ -7,4 +7,12 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'kitchen-kontrol';
+
+  loading = true
+
+  ngOnInit(): void{
+    setTimeout(() => {
+      this.loading = false;
+    }, 1500);
+  }
 }

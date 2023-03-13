@@ -18,6 +18,7 @@ import { OrderPipelineComponent } from './presentation/features/order-pipeline/o
 import { ManagerComponent } from './presentation/features/manager/manager.component';
 import { KitchenComponent } from './presentation/features/kitchen/kitchen.component';
 import { OrderComponent } from './presentation/components/order/order.component';
+import { LoadingScreenComponent } from './presentation/components/loading-screen/loading-screen.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +35,8 @@ import { OrderComponent } from './presentation/components/order/order.component'
     OrderPipelineComponent,
     ManagerComponent,
     KitchenComponent,
-    OrderComponent
+    OrderComponent,
+    LoadingScreenComponent
   ],
   imports: [
     BrowserModule,
