@@ -1,5 +1,5 @@
 .pizzaLogo{
-    padding-top: 200px;
+    padding-top: 125px;
     padding-bottom: 30px;
     width: 300px;
     position:static;
@@ -34,11 +34,11 @@
 .imgButton{
   border: none;
   background: transparent;
-  
+
 }
 .imgButton img{
   height: 280px;
-  
+
 }
 
 .float{
