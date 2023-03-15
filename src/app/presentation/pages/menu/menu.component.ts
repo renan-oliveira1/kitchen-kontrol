@@ -6,5 +6,11 @@ import { Component } from '@angular/core';
   styleUrls: ['./menu.component.css']
 })
 export class MenuComponent {
+  loading = true
 
+  ngOnInit(): void{
+    setTimeout(() => {
+      this.loading = false;
+    }, 1500);
+  }
 }
