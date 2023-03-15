@@ -29,7 +29,6 @@ export class AppComponent {
 
   constructor(private router: Router) {
     router.events.subscribe((event) => {
-      console.log(event)
       if (event instanceof NavigationStart) this.loadingComponent();
 
       if (event instanceof NavigationEnd) this.loading = true;

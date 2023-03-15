@@ -40,11 +40,15 @@ nav{
 a {
     color: #000;
     text-decoration: none;
-  font-family: 'Café Françoise', sans-serif;
-  font-size: 25px;
+    font-family: 'Café Françoise', sans-serif;
+    font-size: 25px;
 }
 
 a:hover{
     color: #FFF;
 }
 
+.nav-link > .a:active{
+    background-color: white;
+    color: white;
+}

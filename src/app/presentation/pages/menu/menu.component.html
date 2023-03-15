@@ -1,4 +1,4 @@
-<app-navbar></app-navbar>
+<app-navbar (navCategoryItem)="changeToOffers()"></app-navbar>
 <div class="main">
   <div class="container">
     <div class="d-flex justify-content-center">
@@ -7,46 +7,24 @@
 
     <div class="d-flex flex-row justify-content-evenly">
       <div>
-        <button class="imgButton">
+        <button class="imgButton" (click)="changeToWhole()">
           <img src="assets/buttons/pizzaInteira.png" />
         </button>
       </div>
       <div>
-        <button class="imgButton">
+        <button class="imgButton" (click)="changeToHalf()">
           <img src="assets/buttons/doisSaboresIcon.png" />
         </button>
       </div>
       <div>
-        <button class="imgButton">
+        <button class="imgButton" (click)="changeToDrinks()">
           <img src="assets/buttons/bebidas.png" />
         </button>
       </div>
     </div>
   </div>
-  <div class="container offers">
-    <div class="box">
-      <img class="logoAlert" src="assets/icons/alertaIcon.png" /> OFERTAS DO DIA <img class="logoAlert"
-        src="assets/icons/alertaIcon.png" />
-      <div class="fakeComponentBox">
-        <p>aqui vai um componente de oferta</p>
-      </div>
-      <div class="fakeComponentBox">
-        <p>aqui vai um componente de oferta</p>
-      </div>
-      <div class="fakeComponentBox">
-        <p>aqui vai um componente de oferta</p>
-      </div>
-      <div class="fakeComponentBox">
-        <p>aqui vai um componente de oferta</p>
-      </div>
-      <div class="fakeComponentBox">
-        <p>aqui vai um componente de oferta</p>
-      </div>
-      <div class="fakeComponentBox">
-        <p>aqui vai um componente de oferta</p>
-      </div>
-    </div>
-  </div>
+  
+  <app-item-render [categoryItem] ="currentCategoryItem" ></app-item-render>
 
 </div>
 

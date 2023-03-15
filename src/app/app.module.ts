@@ -19,6 +19,7 @@ import { ManagerComponent } from './presentation/pages/manager/manager.component
 import { KitchenComponent } from './presentation/pages/kitchen/kitchen.component';
 import { OrderComponent } from './presentation/components/order/order.component';
 import { LoadingScreenComponent } from './presentation/components/loading-screen/loading-screen.component';
+import { ItemRenderComponent } from './presentation/components/item-render/item-render.component';
 
 @NgModule({
   declarations: [
@@ -36,7 +37,8 @@ import { LoadingScreenComponent } from './presentation/components/loading-screen
     ManagerComponent,
     KitchenComponent,
     OrderComponent,
-    LoadingScreenComponent
+    LoadingScreenComponent,
+    ItemRenderComponent
   ],
   imports: [
     BrowserModule,
