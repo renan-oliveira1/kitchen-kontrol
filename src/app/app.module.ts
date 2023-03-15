@@ -10,7 +10,6 @@ import { NavbarComponent } from './presentation/components/navbar/navbar.compone
 import { MenuComponent } from './presentation/pages/menu/menu.component';
 import { HomeComponent } from './presentation/pages/home/home.component';
 import { CategoriesComponent } from './presentation/components/categories/categories.component';
-import { OfferComponent } from './presentation/components/offer/offer.component';
 import { ItemCardComponent } from './presentation/components/item-card/item-card.component';
 import { ItemOrderComponent } from './presentation/components/item-order/item-order.component';
 import { BillComponent } from './presentation/pages/bill/bill.component';
@@ -29,7 +28,6 @@ import { ItemRenderComponent } from './presentation/components/item-render/item-
     MenuComponent,
     HomeComponent,
     CategoriesComponent,
-    OfferComponent,
     ItemCardComponent,
     ItemOrderComponent,
     BillComponent,
