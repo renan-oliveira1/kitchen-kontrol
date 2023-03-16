@@ -4,22 +4,20 @@
         src="assets/icons/alertaIcon.png" />
     </div>
 
-    <div class="fakeComponentBox">
-      <p>aqui vai um componente de oferta</p>
+    <div class="fakeComponentBox" *ngIf="isOffer()">
+      <p></p>
     </div>
-    <div class="fakeComponentBox">
-      <p>aqui vai um componente de oferta</p>
+    
+    <div *ngIf="isWhole() || isHalf()">
+      <div class="fakeComponentBox" *ngFor="let pizza of pizzas" >
+        <p>{{pizza.name}}</p>
+      </div>
     </div>
-    <div class="fakeComponentBox">
-      <p>aqui vai um componente de oferta</p>
+
+    <div *ngIf="isDrinks()">
+      <div class="fakeComponentBox" *ngFor="let drink of drinks" >
+        <p>{{drink.name}}</p>
+      </div>
     </div>
-    <div class="fakeComponentBox">
-      <p>aqui vai um componente de oferta</p>
-    </div>
-    <div class="fakeComponentBox">
-      <p>aqui vai um componente de oferta</p>
-    </div>
-    <div class="fakeComponentBox">
-      <p>aqui vai um componente de oferta</p>
-    </div>
+
   </div>

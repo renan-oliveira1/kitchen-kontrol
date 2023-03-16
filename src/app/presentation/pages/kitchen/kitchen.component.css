@@ -59,7 +59,7 @@ img{
 .box-item-preparing{
   background-color: #ebebeb;
   border: 2px solid #000;
-  border-radius: 35px;
+  border-radius: 20px;
   padding: 10px;
   max-width: 450px;
   margin-bottom: 10px;
@@ -86,4 +86,5 @@ img{
 .table-number{
   margin: 0px;
   background-color: #81ab80;
+  border-radius: 50px;
 }
