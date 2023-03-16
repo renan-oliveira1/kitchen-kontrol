@@ -47,8 +47,3 @@ a {
 a:hover{
     color: #FFF;
 }
-
-.nav-link > .a:active{
-    background-color: white;
-    color: white;
-}
