@@ -1,0 +1,90 @@
+.pizzaLogo{
+  padding-top: 50px;
+  padding-bottom: 30px;
+  width: 150px;
+  position:static;
+}
+
+.main{
+  background-image: url("/assets/imgs/kitchenBackground.jpg");
+  height: 100vh;
+  overflow: auto;
+  font-family: 'Café Françoise', sans-serif;
+  font-size: 35px;
+}
+
+
+
+img{
+  width: 100px;
+}
+
+.box{
+  border: 2px solid #000;
+  padding: 15px 80px;
+  margin-bottom: 100px;
+  width: 100%;
+  height: auto;
+  border-radius: 35px;
+  font-family: 'Café Françoise', sans-serif;
+  color: #000;
+  font-size: 40px;
+  text-align: center;
+}
+
+.box.requests{
+  background-color: #9a7a7a;
+}
+
+.box.preparing{
+  background-color: #928760;
+}
+
+.box.finished{
+  background-color: #81ab80;
+}
+
+.box-item-request{
+  background-color: #ebebeb;
+  border: 2px solid #000;
+  border-radius: 35px;
+  padding: 5px 80px;
+  margin-bottom: 10px;
+  height: auto;
+  font-family: 'Café Françoise', sans-serif;
+  color: #000;
+  font-size: 35px;
+  text-align: center;
+}
+
+.box-item-preparing{
+  background-color: #ebebeb;
+  border: 2px solid #000;
+  border-radius: 35px;
+  padding: 10px;
+  max-width: 450px;
+  margin-bottom: 10px;
+  height: auto;
+  font-family: 'Café Françoise', sans-serif;
+  color: #000;
+  font-size: 20px;
+  text-align: start;
+}
+
+.box-item-finished{
+  background-color: #ebebeb;
+  border: 2px solid #000;
+  border-radius: 35px;
+  padding: 5px 80px;
+  margin-bottom: 10px;
+  height: auto;
+  font-family: 'Café Françoise', sans-serif;
+  color: #000;
+  font-size: 25px;
+  text-align: center;
+}
+
+.table-number{
+  margin: 0px;
+  background-color: #81ab80;
+}
