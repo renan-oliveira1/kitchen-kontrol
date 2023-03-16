@@ -1,17 +1,38 @@
 {
     "pizzas": [
-      { "id": 1, "name": "Calabresa", "description": "Pizza de calabresa deliciosa com o molho de tomate da casa" },
-      { "id": 2, "name": "Mussarella", "description": "A pizza de mussarela mais deliciosa do planeta! (de acordo com minha mãe)" },
-      { "id": 3, "name": "Portuguesa", "description": "Digna de ser vendida até por caravelas!!" },
-      { "id": 4, "name": "Pomodoro", "description": "Nem lembro o que é pomodoro, só sei que é bom!!"},
-      { "id": 5, "name": "Palmito", "description": "Tanta coisa pra você pedir e vc me vem com uma pizza de palmito???"},
-      { "id": 6, "name": "Abacaxi com Canela", "description": "O puro suco do brasileiro!"},
-      { "id": 7, "name": "Margueritta", "description": "Básica e classica, mas muito boa em ser medíocre"}
+      { "id": 1, "name": "Calabresa", "description": "Pizza de calabresa deliciosa com o molho de tomate da casa", "price": 30.00 },
+      { "id": 2, "name": "Mussarella", "description": "A pizza de mussarela mais deliciosa do planeta! (de acordo com minha mãe)", "price": 30.00 },
+      { "id": 3, "name": "Portuguesa", "description": "Digna de ser vendida até por caravelas!!", "price": 30.00 },
+      { "id": 4, "name": "Pomodoro", "description": "Nem lembro o que é pomodoro, só sei que é bom!!", "price": 30.00},
+      { "id": 5, "name": "Palmito", "description": "Tanta coisa pra você pedir e vc me vem com uma pizza de palmito???", "price": 30.00},
+      { "id": 6, "name": "Abacaxi com Canela", "description": "O puro suco do brasileiro!", "price": 30.00},
+      { "id": 7, "name": "Margueritta", "description": "Básica e classica, mas muito boa em ser medíocre", "price": 30.00}
     ],
 
     "drinks": [
-        { "id": 1, "name": "Água", "description": "Da pia do nosso lindo banheiro" },
-        { "id": 2, "name": "CocaCola", "description": "Gelada e Trincando!" },
-        { "id": 3, "name": "Doly Guaraná", "description": "O sabor Brasileiro!" }
+        { "id": 1, "name": "Água", "description": "Da pia do nosso lindo banheiro", "price": 30.00},
+        { "id": 2, "name": "CocaCola", "description": "Gelada e Trincando!", "price": 30.00},
+        { "id": 3, "name": "Doly Guaraná", "description": "O sabor Brasileiro!", "price": 30.00},
+        { "id": 4, "name": "none", "description": "", "price": 0}
+
+    ],
+
+    "pizzaMode": [
+        { "id": 1, "name": "inteira", "priceModifier": 1},
+        { "id": 2, "name": "meia", "priceModifier": 0.5}
+    ],
+
+    "borders": [
+        { "id": 1, "name": "cheddar", "price": 30.00},
+        { "id": 2, "name": "catupiry", "price": 30.00},
+        { "id": 3, "name": "mussarella", "price": 30.00},
+        { "id": 4, "name": "nutella", "price": 30.00},
+        { "id": 5, "name": "none", "price": 0}
+    ],
+
+    "size": [
+        { "id": 1, "name": "grande", "priceModifier": 2},
+        { "id": 2, "name": "media", "priceModifier": 1},
+        { "id": 3, "name": "brotinho", "priceModifier": 0.5}
     ]
   }
