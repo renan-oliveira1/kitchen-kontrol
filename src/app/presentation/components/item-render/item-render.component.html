@@ -29,7 +29,18 @@
 
     <div *ngIf="isDrinks()">
       <div class="fakeComponentBox" *ngFor="let drink of drinks" >
-        <p>{{drink.name}}</p>
+        <div class="d-flex">
+          <div>
+            <img class="image-drink" src="assets/imgs/drink-coke.png">
+          </div>
+          <div class="item">
+            <p class="item-name">{{drink.name}}</p>
+            <p class="item-description">{{drink.description}}</p>
+          </div>
+          <div class="d-flex ms-auto align-items-center">
+            <img class="image-cart" src="assets/icons/carrinhoIcon.png">
+          </div>
+        </div>
       </div>
     </div>
 
