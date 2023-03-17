@@ -29,7 +29,7 @@ import { ItemRenderComponent } from './presentation/components/item-render/item-
     HomeComponent,
     CategoriesComponent,
     ItemCardComponent,
-    ItemOrderComponent,
+    ItemOrderComponent, 
     BillComponent,
     OrderPipelineComponent,
     ManagerComponent,

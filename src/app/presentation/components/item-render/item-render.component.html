@@ -7,10 +7,23 @@
     <div class="fakeComponentBox" *ngIf="isOffer()">
       <p></p>
     </div>
-    
+
     <div *ngIf="isWhole() || isHalf()">
       <div class="fakeComponentBox" *ngFor="let pizza of pizzas" >
-        <p>{{pizza.name}}</p>
+
+        <div class="d-flex">
+          <div>
+            <img class="image-pizza" src="assets/imgs/pizzaCalabresa.jfif">
+          </div>
+          <div class="item">
+            <p class="item-name">{{pizza.name}}</p>
+            <p class="item-description">{{pizza.description}}</p>
+          </div>
+          <div class="d-flex ms-auto align-items-center">
+            <img class="image-cart" src="assets/icons/carrinhoIcon.png">
+          </div>
+        </div>
+
       </div>
     </div>
 

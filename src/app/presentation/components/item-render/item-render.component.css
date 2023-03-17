@@ -98,5 +98,22 @@
     font-family: 'Café Françoise', sans-serif;
     color: #000;
     font-size: 40px;
-    text-align: center;
+    text-align: start;
+}
+
+.image-pizza{
+  border-radius: 25px;
+}
+
+.item{
+  margin: 0px 10px;
+}
+
+.item-description{
+  font-size: 25px;
+}
+
+.image-cart{
+  width: 50px;
+  height: 50px;
 }
