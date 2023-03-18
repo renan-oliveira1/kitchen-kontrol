@@ -43,6 +43,7 @@ img{
 }
 
 .box.finished{
+  margin-top: 25px;
   background-color: #81ab80;
 }
 
@@ -55,7 +56,7 @@ img{
   height: auto;
   font-family: 'Café Françoise', sans-serif;
   color: #000;
-  font-size: 35px;
+  font-size: 25px;
   text-align: center;
 }
 
@@ -64,7 +65,7 @@ img{
   border: 2px solid #000;
   border-radius: 20px;
   padding: 10px;
-  max-width: 450px;
+  max-width: 500px;
   margin-bottom: 10px;
   height: auto;
   font-family: 'Café Françoise', sans-serif;
@@ -77,17 +78,21 @@ img{
   background-color: #ebebeb;
   border: 2px solid #000;
   border-radius: 35px;
-  padding: 5px 80px;
+  padding-right: 50px;
+  padding-left: 50px;
   margin-bottom: 10px;
   height: auto;
   font-family: 'Café Françoise', sans-serif;
   color: #000;
   font-size: 25px;
   text-align: center;
+  padding-top: 10px;
 }
 
+
 .table-number{
-  margin: 0px;
+  margin-top: 10px;
   background-color: #81ab80;
   border-radius: 50px;
+  padding: 10px;
 }
