@@ -11,8 +11,21 @@
         <div class="box requests">
           <div *ngFor="let pizzaOrder of pizzaOrders">
             <div *ngIf="pizzaOrder.status == 'requested'">
-              <div class="box-item-request">
-                {{pizzaOrder.pizzas}}
+              <div class="box-item-request text-center">
+                <div class="container">
+                  <div class="row">
+                    <div class="col-sm">
+                      {{pizzaOrder.pizzas}}
+                    </div>
+                    <div class="col-sm">
+                    </div>
+                    <div class="col-sm">
+                      <button class="rounded-circle" (click)="upgradeStatusOrder(pizzaOrder.id, pizzaOrder.status)">
+                      >
+                      </button>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
@@ -24,9 +37,18 @@
         <div class="box preparing">
           <div *ngFor="let pizzaOrder of pizzaOrders">
             <div *ngIf="pizzaOrder.status == 'cooking'">
-              <div (click)="openDialog(pizzaOrder)" class="box-item-preparing">
-                ITEM: {{pizzaOrder.pizzas}} <br>
-                Observação: {{pizzaOrder.observation}}
+              <div class="box-item-preparing">
+                <div class="row">
+                  <div (click)="openDialog(pizzaOrder)" class="col-sm col-10">
+                    <h3>ITEM:{{pizzaOrder.pizzas}}</h3><br>
+                   <p> Observação: {{pizzaOrder.observation}}</p>
+                  </div>
+                  <div class="col-sm col-2">
+                    <button class="rounded-circle" (click)="upgradeStatusOrder(pizzaOrder.id, pizzaOrder.status)">
+                    >
+                    </button>
+                  </div>
+                </div>
               </div>
             </div>
           </div>

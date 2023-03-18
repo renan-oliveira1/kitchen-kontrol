@@ -6,6 +6,7 @@ import { PizzaModifierRenderService } from '../pizza-modifier/pizza-modifier-ren
 import { Observable } from 'rxjs';
 import { PizzaItem } from 'src/app/domain/interfaces/PizzaItem';
 
+
 @Injectable({
   providedIn: 'root'
 })
@@ -23,27 +24,17 @@ export class PizzaOrderService {
     return this.http.get<PizzaItem>(this.pizzaOrderUrl + id)
   }
 
-  upgradeStatus(id: String){
-    var pizzaItem : PizzaItem = {
-      id: 1,
-      pizzas:'',
-      border:'',
-      status:'',
-      size:'',
-      observation:'',
-      table :''
-    }
-    this.getPizzaOrdersById(id).subscribe((data) => {pizzaItem = data})
+  upgradeStatus(id: string, statusItem: string){
 
-    var status = {
+    const status = {
       status: ''
     }
-  
 
-    if (pizzaItem.status == "requested") status.status = "cooking"
-    else if (pizzaItem.status == "cooking") status.status = "done"
-    else status.status = "delivered"
+    if (statusItem == "requested") status.status = "cooking"
+    else if (statusItem == "cooking") status.status = "done"
+    else statusItem = "delivered"
+
+    return this.http.patch(this.pizzaOrderUrl + id, status)
     
-    this.http.put(this.pizzaOrderUrl + id, status)
   }
 }

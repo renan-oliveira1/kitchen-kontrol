@@ -40,6 +40,15 @@ export class KitchenComponent {
     })
   }
 
+  upgradeStatusOrder(id: number, status: string){
+    this.pizzaOrderService.upgradeStatus(id.toString(), status).subscribe({
+      next: (response) => {
+        this.ngOnInit()
+      },
+      error: () => {}
+    })
+  }
+
 
   
 }
