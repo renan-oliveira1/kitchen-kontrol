@@ -1,0 +1,29 @@
+
+.confirm{
+    margin: 25px;
+}
+.modalSize{
+    height: auto;
+    width: auto;
+}
+
+.box-item-preparing{
+    background-color: #ebebeb;
+    border: 2px solid #000;
+    padding: 10px;
+    max-width: 600px;
+    height: auto;
+    font-family: 'Café Françoise', sans-serif;
+    color: #000;
+  }
+
+p{
+    font-size: 20px;
+    font-family: 'Café Françoise', sans-serif;
+}
+
+.header{
+    text-align: center;
+    font-size: 40px;
+    font-family: 'Café Françoise', sans-serif;
+}

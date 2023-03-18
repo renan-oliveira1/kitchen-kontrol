@@ -16,6 +16,7 @@
 
 img{
   width: 100px;
+  padding-bottom: 25px;
 }
 
 .box{
@@ -32,10 +33,12 @@ img{
 }
 
 .box.requests{
+  margin-top: 25px;
   background-color: #9a7a7a;
 }
 
 .box.preparing{
+  margin-top: 25px;
   background-color: #928760;
 }
 

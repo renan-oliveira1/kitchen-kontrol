@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
+import { MatDialogModule } from '@angular/material/dialog';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -19,6 +20,7 @@ import { KitchenComponent } from './presentation/pages/kitchen/kitchen.component
 import { OrderComponent } from './presentation/components/order/order.component';
 import { LoadingScreenComponent } from './presentation/components/loading-screen/loading-screen.component';
 import { ItemRenderComponent } from './presentation/components/item-render/item-render.component';
+import { ModalComponent } from './presentation/components/modal/modal.component';
 
 @NgModule({
   declarations: [
@@ -36,14 +38,16 @@ import { ItemRenderComponent } from './presentation/components/item-render/item-
     KitchenComponent,
     OrderComponent,
     LoadingScreenComponent,
-    ItemRenderComponent
+    ItemRenderComponent,
+    ModalComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    MatDialogModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
