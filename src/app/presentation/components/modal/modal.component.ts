@@ -9,9 +9,9 @@ import { Inject } from '@angular/core';
 })
 export class ModalComponent {
   constructor(@Inject(MAT_DIALOG_DATA) public data: {
-    pizza: {
+    order: {
       name : String, 
-      desc: String
+      observation: String
     }}){}
 
   

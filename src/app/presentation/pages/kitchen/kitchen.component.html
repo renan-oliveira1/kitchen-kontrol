@@ -9,14 +9,12 @@
         <img src="assets/icons/PedidosCozinhaIcon.png">
         Pedidos
         <div class="box requests">
-          <div class="box-item-request">
-            PIZZA Calabresa
-          </div>
-          <div class="box-item-request">
-            Pizza Calabresa
-          </div>
-          <div class="box-item-request">
-            PIZZA Peperoni
+          <div *ngFor="let pizzaOrder of pizzaOrders">
+            <div *ngIf="pizzaOrder.status == 'requested'">
+              <div class="box-item-request">
+                {{pizzaOrder.pizzas}}
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -24,15 +22,13 @@
         <img src="assets/icons/cozinhandoMenuIcon.png">
         Preparando
         <div class="box preparing">
-          <div (click)="openDialog()" class="box-item-preparing">
-            ITEM: PIZZA Calabresa <br>
-            Observação: Não sei o que escrever então vou escrever coisas 
-            aleatórias pois eu quero, sou livre e independente ninguem consegue
-             me segurar, pois eu sou o monstro do lago nes(não sei escrever) mas é isso
-          </div>
-          <div (click)="openDialog()" class="box-item-preparing">
-            ITEM: PIZZA Calabresa <br>
-            Observação: Não sei o que escrever então vou escrever coisas aleatórias pois eu quero, sou livre e independente ninguem consegue me segurar, pois eu sou o monstro do lago nes(não sei escrever) mas é isso
+          <div *ngFor="let pizzaOrder of pizzaOrders">
+            <div *ngIf="pizzaOrder.status == 'cooking'">
+              <div (click)="openDialog(pizzaOrder)" class="box-item-preparing">
+                ITEM: {{pizzaOrder.pizzas}} <br>
+                Observação: {{pizzaOrder.observation}}
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -40,10 +36,15 @@
         <img src="assets/icons/entregueIcon.png">
         Finalizado
         <div class="box finished">
-          <div class="box-item-finished">
-            PIZZA Peperoni <br>
-            <p class="table-number">Mesa 10</p>
+          <div *ngFor="let pizzaOrder of pizzaOrders">
+            <div *ngIf="pizzaOrder.status == 'done'">
+              <div class="box-item-finished">
+                {{pizzaOrder.pizzas}} <br>
+                <p class="table-number">{{pizzaOrder.table}}</p>
+              </div>
+            </div>
           </div>
+        
         </div>
       </div>
     </div>

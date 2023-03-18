@@ -3,17 +3,16 @@ import { CategoryItem } from 'src/app/core/CategoryItem';
 import { Item } from 'src/app/domain/interfaces/Item';
 import { PizzaAddon } from 'src/app/domain/interfaces/PizzaAddon';
 import { PizzaModifier } from 'src/app/domain/interfaces/PizzaModifier';
-import { ItemRenderService } from 'src/app/data/item-render.service';
+import { ItemRenderService } from 'src/app/data/item-render/item-render.service';
 
 @Component({
   selector: 'app-item-render',
   templateUrl: './item-render.component.html',
   styleUrls: ['./item-render.component.css']
 })
-export class ItemRenderComponent {
+export class ItemRenderComponent { 
   pizzas: Item[] = []
   drinks: Item[] = []
-  pizzaMode: PizzaModifier[] = []
   borders: PizzaAddon[] = []
   size: PizzaModifier[] = []
 
