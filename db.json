@@ -1,53 +1,201 @@
 {
-    "pizzas": [
-      { "id": 1, "name": "Calabresa", "description": "Pizza de calabresa deliciosa com o molho de tomate da casa", "price": 30.00 },
-      { "id": 2, "name": "Mussarella", "description": "A pizza de mussarela mais deliciosa do planeta! (de acordo com minha mãe)", "price": 30.00 },
-      { "id": 3, "name": "Portuguesa", "description": "Digna de ser vendida até por caravelas!!", "price": 30.00 },
-      { "id": 4, "name": "Pomodoro", "description": "Nem lembro o que é pomodoro, só sei que é bom!!", "price": 30.00},
-      { "id": 5, "name": "Palmito", "description": "Tanta coisa pra você pedir e vc me vem com uma pizza de palmito???", "price": 30.00},
-      { "id": 6, "name": "Abacaxi com Canela", "description": "O puro suco do brasileiro!", "price": 30.00},
-      { "id": 7, "name": "Margueritta", "description": "Básica e classica, mas muito boa em ser medíocre", "price": 30.00}
-    ],
-
-    "drinks": [
-        { "id": 1, "name": "Água", "description": "Da pia do nosso lindo banheiro", "price": 30.00, "status": "done"},
-        { "id": 2, "name": "CocaCola", "description": "Gelada e Trincando!", "price": 30.00,  "status": "done"},
-        { "id": 3, "name": "Doly Guaraná", "description": "O sabor Brasileiro!", "price": 30.00,  "status": "done"},
-        { "id": 4, "name": "none", "description": "", "price": 0, "status": "done"}
-
-    ],
-
-    "borders": [
-        { "id": 1, "name": "cheddar", "price": 30.00},
-        { "id": 2, "name": "catupiry", "price": 30.00},
-        { "id": 3, "name": "mussarella", "price": 30.00},
-        { "id": 4, "name": "nutella", "price": 30.00},
-        { "id": 5, "name": "none", "price": 0}
-    ],
-
-    "sizes": [
-        { "id": 1, "name": "grande", "priceModifier": 2},
-        { "id": 2, "name": "media", "priceModifier": 1},
-        { "id": 3, "name": "brotinho", "priceModifier": 0.5}
-    ],
-
-    "pizzaModes": [
-        { "id": 1, "name": "inteira", "priceModifier": 1},
-        { "id": 2, "name": "meia", "priceModifier": 0.5}
-    ],
-
-    "pizzaOrders": [
-        { "id": 1, "pizzas": "Calabresa e Margeritta",  "borders": "cheddar", "sizes": "Grande", "status": "requested", "table": 12, "observation": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras id pretium erat. Cras felis ipsum, euismod sit amet justo at, bibendum ultrices arcu. "},
-        { "id": 2, "pizzas": "Bacon",  "borders": "catupiry", "sizes": "Brotinho",  "status": "cooking", "table": 12, "observation": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras id pretium erat. Cras felis ipsum, euismod sit amet justo at, bibendum ultrices arcu. "},
-        { "id": 4, "pizzas": "Bacon",  "borders": "catupiry", "sizes": "Brotinho",  "status": "cooking", "table": 12, "observation": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras id pretium erat. Cras felis ipsum, euismod sit amet justo at, bibendum ultrices arcu. "},
-        { "id": 22, "pizzas": "Bacon",  "borders": "catupiry", "sizes": "Brotinho",  "status": "cooking", "table": 12, "observation": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras id pretium erat. Cras felis ipsum, euismod sit amet justo at, bibendum ultrices arcu. "},
-        { "id": 3, "pizzas": "Abacaxi",  "borders": "sem borda", "sizes": "Grande", "status": "done", "table": 12, "observation": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras id pretium erat. Cras felis ipsum, euismod sit amet justo at, bibendum ultrices arcu. "}
-    ],
-
-
-    "orders": [
-        {"id": 1, "pizzaOrders": 1, "drinks":[1,2]},
-        {"id": 2, "pizzaOrders": 2, "drinks":[]},
-        {"id": 3, "pizzaOrders": 1, "drinks":[1]}
-    ]
-  }
+  "pizzas": [
+    {
+      "id": 1,
+      "name": "Calabresa",
+      "description": "Pizza de calabresa deliciosa com o molho de tomate da casa",
+      "price": 30
+    },
+    {
+      "id": 2,
+      "name": "Mussarella",
+      "description": "A pizza de mussarela mais deliciosa do planeta! (de acordo com minha mãe)",
+      "price": 30
+    },
+    {
+      "id": 3,
+      "name": "Portuguesa",
+      "description": "Digna de ser vendida até por caravelas!!",
+      "price": 30
+    },
+    {
+      "id": 4,
+      "name": "Pomodoro",
+      "description": "Nem lembro o que é pomodoro, só sei que é bom!!",
+      "price": 30
+    },
+    {
+      "id": 5,
+      "name": "Palmito",
+      "description": "Tanta coisa pra você pedir e vc me vem com uma pizza de palmito???",
+      "price": 30
+    },
+    {
+      "id": 6,
+      "name": "Abacaxi com Canela",
+      "description": "O puro suco do brasileiro!",
+      "price": 30
+    },
+    {
+      "id": 7,
+      "name": "Margueritta",
+      "description": "Básica e classica, mas muito boa em ser medíocre",
+      "price": 30
+    }
+  ],
+  "drinks": [
+    {
+      "id": 1,
+      "name": "Água",
+      "description": "Da pia do nosso lindo banheiro",
+      "price": 30,
+      "status": "done"
+    },
+    {
+      "id": 2,
+      "name": "CocaCola",
+      "description": "Gelada e Trincando!",
+      "price": 30,
+      "status": "done"
+    },
+    {
+      "id": 3,
+      "name": "Doly Guaraná",
+      "description": "O sabor Brasileiro!",
+      "price": 30,
+      "status": "done"
+    },
+    {
+      "id": 4,
+      "name": "none",
+      "description": "",
+      "price": 0,
+      "status": "done"
+    }
+  ],
+  "borders": [
+    {
+      "id": 1,
+      "name": "cheddar",
+      "price": 30
+    },
+    {
+      "id": 2,
+      "name": "catupiry",
+      "price": 30
+    },
+    {
+      "id": 3,
+      "name": "mussarella",
+      "price": 30
+    },
+    {
+      "id": 4,
+      "name": "nutella",
+      "price": 30
+    },
+    {
+      "id": 5,
+      "name": "none",
+      "price": 0
+    }
+  ],
+  "sizes": [
+    {
+      "id": 1,
+      "name": "grande",
+      "priceModifier": 2
+    },
+    {
+      "id": 2,
+      "name": "media",
+      "priceModifier": 1
+    },
+    {
+      "id": 3,
+      "name": "brotinho",
+      "priceModifier": 0.5
+    }
+  ],
+  "pizzaModes": [
+    {
+      "id": 1,
+      "name": "inteira",
+      "priceModifier": 1
+    },
+    {
+      "id": 2,
+      "name": "meia",
+      "priceModifier": 0.5
+    }
+  ],
+  "pizzaOrders": [
+    {
+      "id": 1,
+      "pizzas": "Calabresa e Margeritta",
+      "borders": "cheddar",
+      "sizes": "Grande",
+      "status": "requested",
+      "table": 12,
+      "observation": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras id pretium erat. Cras felis ipsum, euismod sit amet justo at, bibendum ultrices arcu. "
+    },
+    {
+      "id": 2,
+      "pizzas": "Bacon",
+      "borders": "catupiry",
+      "sizes": "Brotinho",
+      "status": "cooking",
+      "table": 12,
+      "observation": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras id pretium erat. Cras felis ipsum, euismod sit amet justo at, bibendum ultrices arcu. "
+    },
+    {
+      "id": 4,
+      "pizzas": "Bacon",
+      "borders": "catupiry",
+      "sizes": "Brotinho",
+      "status": "cooking",
+      "table": 12,
+      "observation": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras id pretium erat. Cras felis ipsum, euismod sit amet justo at, bibendum ultrices arcu. "
+    },
+    {
+      "id": 22,
+      "pizzas": "Bacon",
+      "borders": "catupiry",
+      "sizes": "Brotinho",
+      "status": "requested",
+      "table": 12,
+      "observation": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras id pretium erat. Cras felis ipsum, euismod sit amet justo at, bibendum ultrices arcu. "
+    },
+    {
+      "id": 3,
+      "pizzas": "Abacaxi",
+      "borders": "sem borda",
+      "sizes": "Grande",
+      "status": "done",
+      "table": 12,
+      "observation": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras id pretium erat. Cras felis ipsum, euismod sit amet justo at, bibendum ultrices arcu. "
+    }
+  ],
+  "orders": [
+    {
+      "id": 1,
+      "pizzaOrders": 1,
+      "drinks": [
+        1,
+        2
+      ]
+    },
+    {
+      "id": 2,
+      "pizzaOrders": 2,
+      "drinks": []
+    },
+    {
+      "id": 3,
+      "pizzaOrders": 1,
+      "drinks": [
+        1
+      ]
+    }
+  ]
+}

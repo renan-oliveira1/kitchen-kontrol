@@ -22,4 +22,28 @@ export class PizzaOrderService {
   getPizzaOrdersById(id : String): Observable<PizzaItem>{
     return this.http.get<PizzaItem>(this.pizzaOrderUrl + id)
   }
+
+  upgradeStatus(id: String){
+    var pizzaItem : PizzaItem = {
+      id: 1,
+      pizzas:'',
+      border:'',
+      status:'',
+      size:'',
+      observation:'',
+      table :''
+    }
+    this.getPizzaOrdersById(id).subscribe((data) => {pizzaItem = data})
+
+    var status = {
+      status: ''
+    }
+  
+
+    if (pizzaItem.status == "requested") status.status = "cooking"
+    else if (pizzaItem.status == "cooking") status.status = "done"
+    else status.status = "delivered"
+    
+    this.http.put(this.pizzaOrderUrl + id, status)
+  }
 }
