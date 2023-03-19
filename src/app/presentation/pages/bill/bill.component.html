@@ -1,1 +1,28 @@
-<p>bill works!</p>
+<app-navbar></app-navbar>
+<div class="main">
+    <div class="billBox">
+        <div class="row">
+            <div class="col-sm">
+                <p>pizzaCalabresa</p>
+            </div>
+            <div class="col-sm"></div>
+            <div class="col-sm">
+                <p>R$39,99</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm"></div>
+            <div class="col-sm total">
+                <p>total: R$150,00</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm"></div>
+            <img class="col-sm imagebotton" src="/assets/imgs/bottomBillCard.png">
+            <div class="col-sm" >
+                <img class="pay"(click)="openPayDialog()"src="/assets/buttons/payButton.png">
+            </div>
+        </div>
+    </div>
+    <app-footer></app-footer>
+</div>

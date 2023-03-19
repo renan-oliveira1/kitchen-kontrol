@@ -197,5 +197,28 @@
         1
       ]
     }
+  ],
+
+  "OrderItems": [
+    {
+      "id": 1,
+      "name": "Pizza de Calabresa",
+      "price": 39.99
+    },
+    {
+      "id": 2,
+      "name": "CocaCola lata",
+      "price": 6.99
+    },
+    {
+      "id": 3,
+      "name": "Pizza de Muçarela",
+      "price": 39.99
+    },
+    {
+      "id": 4,
+      "name": "Água",
+      "price": 2.99
+    }
   ]
 }

@@ -6,5 +6,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./bill.component.css']
 })
 export class BillComponent {
-
+  openPayDialog(){
+    console.log('payDialog')
+  }
 }

@@ -1,0 +1,44 @@
+.main{
+    padding-top: 100px;
+    background-image: url("/assets/imgs/background4.png");
+    width: 100%;
+    background-size: 100%;
+    height: 100%;
+}
+
+.billBox{
+    background-color: #f5f2f2;
+    border: 20px solid #b3b3b3;
+    box-shadow: 50px;
+    width: 1440px;
+    height: auto;
+    margin: 50px auto;
+    border-radius: 30px;
+    position: relative;
+}
+
+.billBox p{
+    text-align: center;
+    font-family: 'Café Françoise', sans-serif;
+    color: #000;
+    font-size: 40px;
+    line-height: 50px;
+    text-decoration: underline;
+}
+
+.imagebotton{
+    width: 800px;
+    height: 120px;
+    margin: 50px auto;
+}
+
+.total{
+    margin-top: 30px;
+}
+
+.pay{
+    position: absolute;
+    margin-left: 100px;
+    width: 250px;
+    height: auto;
+}
