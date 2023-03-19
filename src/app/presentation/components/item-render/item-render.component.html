@@ -1,47 +1,47 @@
 <div class="container box">
-    <div *ngIf="isOffer()">
-        <img  class="logoAlert" src="assets/icons/alertaIcon.png" /> OFERTAS DO DIA <img class="logoAlert"
-        src="assets/icons/alertaIcon.png" />
-    </div>
-
-    <div class="fakeComponentBox" *ngIf="isOffer()">
-      <p></p>
-    </div>
-
-    <div *ngIf="isWhole() || isHalf()">
-      <div class="fakeComponentBox" *ngFor="let pizza of pizzas" >
-
-        <div class="d-flex">
-          <div>
-            <img class="image-pizza" src="assets/imgs/pizzaCalabresa.jfif">
-          </div>
-          <div class="item">
-            <p class="item-name">{{pizza.name}}</p>
-            <p class="item-description">{{pizza.description}}</p>
-          </div>
-          <div class="d-flex ms-auto align-items-center">
-            <img class="image-cart" src="assets/icons/carrinhoIcon.png">
-          </div>
-        </div>
-
-      </div>
-    </div>
-
-    <div *ngIf="isDrinks()">
-      <div class="fakeComponentBox" *ngFor="let drink of drinks" >
-        <div class="d-flex">
-          <div>
-            <img class="image-drink" src="assets/imgs/drink-coke.png">
-          </div>
-          <div class="item">
-            <p class="item-name">{{drink.name}}</p>
-            <p class="item-description">{{drink.description}}</p>
-          </div>
-          <div class="d-flex ms-auto align-items-center">
-            <img class="image-cart" src="assets/icons/carrinhoIcon.png">
-          </div>
-        </div>
-      </div>
-    </div>
-
+  <div *ngIf="isOffer()">
+    <img class="logoAlert" src="assets/icons/alertaIcon.png" /> OFERTAS DO DIA <img class="logoAlert"
+      src="assets/icons/alertaIcon.png" />
   </div>
+
+  <div class="fakeComponentBox" *ngIf="isOffer()">
+    <p></p>
+  </div>
+
+  <div *ngIf="isWhole() || isHalf()">
+    <div class="fakeComponentBox" *ngFor="let pizza of pizzas">
+
+      <div class="d-flex">
+        <div>
+          <img class="image-pizza" src="assets/imgs/pizzaCalabresa.jfif">
+        </div>
+        <div class="item">
+          <p class="item-name">{{pizza.name}}</p>
+          <p class="item-description">{{pizza.description}}</p>
+        </div>
+        <div class="d-flex ms-auto align-items-center">
+          <img class="image-cart" src="assets/icons/carrinhoIcon.png">
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <div *ngIf="isDrinks()">
+    <div class="fakeComponentBox" *ngFor="let drink of drinks">
+      <div class="d-flex">
+        <div>
+          <img class="image-drink" src="assets/imgs/drink-coke.png">
+        </div>
+        <div class="item">
+          <p class="item-name">{{drink.name}}</p>
+          <p class="item-description">{{drink.description}}</p>
+        </div>
+        <div class="d-flex ms-auto align-items-center">
+          <img class="image-cart" src="assets/icons/carrinhoIcon.png">
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>

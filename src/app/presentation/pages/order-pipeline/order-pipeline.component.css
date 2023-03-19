@@ -1,0 +1,53 @@
+
+.box{
+    background-color: #7f7f7f;
+    border: 2px solid #000;
+    opacity: 0.8;
+    padding: 10px 50px 75px 50px;
+    width: 100%;
+    height: 100%;
+    border-radius: 50px;
+    font-family: 'Café Françoise', sans-serif;
+    color: #000;
+    font-size: 40px;
+    text-align: center;
+}
+
+
+.main{
+    padding-top: 100px;
+    background-image: url("/assets/imgs/background4.png");
+}
+
+.fakeComponentBox{
+    display: flex;
+    justify-content: center;
+    background-color: #f5f2f2;
+    border: 20px solid #b3b3b3;
+    opacity: 0.9;
+    padding: 20px;
+    margin: 50px auto;
+    width: 1200px;
+    height: auto;
+    border-radius: 50px;
+    font-family: 'Café Françoise', sans-serif;
+    color: #000;
+    font-size: 40px;
+}
+
+.image-pizza{
+    border-radius: 25px;
+    width: 300px;
+    height: auto;
+  }
+
+.image-pipe{
+    width: 500px;
+    height: auto;
+    border-radius: 100px;
+}
+
+.right{
+    margin-left: 100px;
+    margin-top: 50px;
+}

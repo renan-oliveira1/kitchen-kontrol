@@ -49,28 +49,28 @@
       "name": "Água",
       "description": "Da pia do nosso lindo banheiro",
       "price": 30,
-      "status": "done"
+      "status": "requested"
     },
     {
       "id": 2,
       "name": "CocaCola",
       "description": "Gelada e Trincando!",
       "price": 30,
-      "status": "done"
+      "status": "requested"
     },
     {
       "id": 3,
       "name": "Doly Guaraná",
       "description": "O sabor Brasileiro!",
       "price": 30,
-      "status": "done"
+      "status": "requested"
     },
     {
       "id": 4,
       "name": "none",
       "description": "",
       "price": 0,
-      "status": "done"
+      "status": "requested"
     }
   ],
   "borders": [
@@ -153,7 +153,7 @@
       "pizzas": "Bacon",
       "borders": "catupiry",
       "sizes": "Brotinho",
-      "status": "done",
+      "status": "cooking",
       "table": 12,
       "observation": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras id pretium erat. Cras felis ipsum, euismod sit amet justo at, bibendum ultrices arcu. "
     },
@@ -171,7 +171,7 @@
       "pizzas": "Abacaxi",
       "borders": "sem borda",
       "sizes": "Grande",
-      "status": "cooking",
+      "status": "requested",
       "table": 12,
       "observation": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras id pretium erat. Cras felis ipsum, euismod sit amet justo at, bibendum ultrices arcu. "
     }
