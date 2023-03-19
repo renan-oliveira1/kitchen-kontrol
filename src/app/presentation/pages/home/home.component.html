@@ -5,16 +5,17 @@
       <img class="pizzaLogo" src="assets/icons/pizzaPedacosIcon.png" />
     </div>
 
-    <div class="d-flex flex-column align-items-center">
-      <div>
-        <button class="imgButton " (click)="navigateHome()">
-          <img src="assets/buttons/cardapio.png" />
-        </button>
-      </div>
-
+    <div class="d-flex flex-row justify-content-evenly">
+      
       <div>
         <button class="imgButton" routerLink="order" (click)="navigateOrder()">
           <img src="assets/buttons/acompanharPedido.png" />
+        </button>
+      </div>
+      
+      <div>
+        <button class="imgButton " (click)="navigateMenu()">
+          <img src="assets/buttons/cardapio.png" />
         </button>
       </div>
 
