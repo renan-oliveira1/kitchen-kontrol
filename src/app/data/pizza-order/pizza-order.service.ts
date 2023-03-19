@@ -32,7 +32,7 @@ export class PizzaOrderService {
 
     if (statusItem == "requested") status.status = "cooking"
     else if (statusItem == "cooking") status.status = "done"
-    else statusItem = "delivered"
+    else if (statusItem = "done") status.status = "delivered"
 
     return this.http.patch(this.pizzaOrderUrl + id, status)
     

@@ -40,7 +40,7 @@ export class WaiterComponent {
   }
 
   showDeliverDialog(pizzaItem: PizzaItem){
-    this.dialogRef.open(DeliveredDialogComponent, {
+    const resultDialog = this.dialogRef.open(DeliveredDialogComponent, {
       data: { 
         order : {
           name : pizzaItem.pizzas,
@@ -48,6 +48,23 @@ export class WaiterComponent {
         }
       }
     });
+
+    resultDialog.afterClosed().subscribe({
+      next: (value) => {
+        if(value == true){
+          this.upgradeStatusOrder(pizzaItem.id, pizzaItem.status)
+        }
+      }
+    })
+  }
+
+  upgradeStatusOrder(id: number, status: string){
+    this.pizzaOrderService.upgradeStatus(id.toString(), status).subscribe({
+      next: (response) => {
+        this.ngOnInit()
+      },
+      error: () => {}
+    })
   }
 
 
