@@ -1,19 +1,20 @@
 <app-navbar></app-navbar>
 <div class="main">
     <div class="billBox">
-        <div class="row">
-            <div class="col-sm">
-                <p>pizzaCalabresa</p>
-            </div>
+        <div class="row" *ngFor="let orderItem of orderItems">
             <div class="col-sm"></div>
             <div class="col-sm">
-                <p>R$39,99</p>
+                <p style="text-align: left;">{{orderItem.name}}</p>
             </div>
+            <div class="col-sm">
+                <p>R${{orderItem.price}}</p>
+            </div>
+            <div class="col-sm"></div>
         </div>
         <div class="row">
             <div class="col-sm"></div>
             <div class="col-sm total">
-                <p>total: R$150,00</p>
+                <p>TOTAL:R${{orderTotal}}</p>
             </div>
         </div>
         <div class="row">
