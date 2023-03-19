@@ -136,7 +136,7 @@
       "borders": "cheddar",
       "sizes": "Grande",
       "status": "done",
-      "table": 12,
+      "table": "12",
       "observation": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras id pretium erat. Cras felis ipsum, euismod sit amet justo at, bibendum ultrices arcu. "
     },
     {
@@ -145,7 +145,7 @@
       "borders": "catupiry",
       "sizes": "Brotinho",
       "status": "done",
-      "table": 12,
+      "table": "12",
       "observation": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras id pretium erat. Cras felis ipsum, euismod sit amet justo at, bibendum ultrices arcu. "
     },
     {
@@ -153,8 +153,8 @@
       "pizzas": "Bacon",
       "borders": "catupiry",
       "sizes": "Brotinho",
-      "status": "cooking",
-      "table": 12,
+      "status": "done",
+      "table": "12",
       "observation": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras id pretium erat. Cras felis ipsum, euismod sit amet justo at, bibendum ultrices arcu. "
     },
     {
@@ -162,8 +162,8 @@
       "pizzas": "Bacon",
       "borders": "catupiry",
       "sizes": "Brotinho",
-      "status": "requested",
-      "table": 12,
+      "status": "cooking",
+      "table": "12",
       "observation": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras id pretium erat. Cras felis ipsum, euismod sit amet justo at, bibendum ultrices arcu. "
     },
     {
@@ -171,8 +171,8 @@
       "pizzas": "Abacaxi",
       "borders": "sem borda",
       "sizes": "Grande",
-      "status": "requested",
-      "table": 12,
+      "status": "cooking",
+      "table": "12",
       "observation": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras id pretium erat. Cras felis ipsum, euismod sit amet justo at, bibendum ultrices arcu. "
     }
   ],
@@ -198,7 +198,6 @@
       ]
     }
   ],
-
   "orderItems": [
     {
       "id": 1,

@@ -1,0 +1,70 @@
+.pizzaLogo{
+    padding-top: 50px;
+    padding-bottom: 30px;
+    width: 150px;
+    position:static;
+}
+  
+.main{
+    background-image: url("/assets/imgs/kitchenBackground.jpg");
+    height: 100vh;
+    overflow: auto;
+    font-family: 'Café Françoise', sans-serif;
+    font-size: 35px;
+    align-items: center;
+
+}
+
+.orders{
+    border: 2px solid #000;
+    background-color: #4d4d4d;
+    margin-bottom: 100px;
+    padding-left: 25px;
+    padding-right: 25px;
+    width: 600px;
+    height: auto;
+    border-radius: 35px;
+    font-family: 'Café Françoise', sans-serif;
+    color: #000;
+    font-size: 40px;
+    text-align: center;
+  }
+
+.image-barman{
+    width: 75px;
+    height: 75px;
+}
+
+.box-table{
+    border: 2px solid #000;
+    background-color: #ebebeb;
+    padding-bottom: 30px;
+    margin-bottom: 30px;
+    margin-top: 30px;
+    width: 100%;
+    height: auto;
+    border-radius: 35px;
+    font-family: 'Café Françoise', sans-serif;
+    color: #000;
+    font-size: 20px;
+  }
+
+  p{
+    text-align: center;
+    line-height: 30px;
+    padding-top: 40px;
+    margin-left: 20px;
+  }
+
+  .table-number{
+    margin-top: 30px;
+    background-color: #81ab80;
+    border-radius: 50px;
+    padding: 10px;
+  }
+
+.image-deliver{
+    width: 60px;
+    height: auto;
+    margin: 20px auto;
+}

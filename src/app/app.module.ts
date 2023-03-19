@@ -21,6 +21,8 @@ import { OrderComponent } from './presentation/components/order/order.component'
 import { LoadingScreenComponent } from './presentation/components/loading-screen/loading-screen.component';
 import { ItemRenderComponent } from './presentation/components/item-render/item-render.component';
 import { ModalComponent } from './presentation/components/modal/modal.component';
+import { WaiterComponent } from './presentation/pages/waiter/waiter.component';
+import { DeliveredDialogComponent } from './presentation/components/delivered-dialog/delivered-dialog.component';
 
 @NgModule({
   declarations: [
@@ -39,7 +41,9 @@ import { ModalComponent } from './presentation/components/modal/modal.component'
     OrderComponent,
     LoadingScreenComponent,
     ItemRenderComponent,
-    ModalComponent
+    ModalComponent,
+    WaiterComponent,
+    DeliveredDialogComponent
   ],
   imports: [
     BrowserModule,

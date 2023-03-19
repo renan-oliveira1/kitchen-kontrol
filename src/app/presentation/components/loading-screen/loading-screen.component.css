@@ -12,6 +12,8 @@ body {
   align-items: center;
   height: 100vh;
   background-image: url("/assets/imgs/background4.png");
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 svg {

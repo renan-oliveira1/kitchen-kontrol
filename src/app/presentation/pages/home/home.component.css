@@ -2,6 +2,8 @@
   background-image: url("/assets/imgs/background4.png");
   height: 100vh;
   overflow: auto;
+  background-repeat: no-repeat;
+  background-size: cover; 
 }
 
 .pizzaLogo{
@@ -23,4 +25,19 @@
   width: auto;
   margin: auto;
   height: 350px;
+}
+.float{
+	position:fixed;
+	width:60px;
+	height:60px;
+	bottom:40px;
+	right:40px;
+	border-radius:50px;
+	box-shadow: 2px 2px 3px;
+}
+
+.waiterButton{
+    position: absolute;
+    background-color: #873E3E;
+    border: none;
 }

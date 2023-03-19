@@ -13,6 +13,4 @@ export class ModalComponent {
       name : String, 
       observation: String
     }}){}
-
-  
 }

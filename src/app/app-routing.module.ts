@@ -6,9 +6,11 @@ import { BillComponent } from './presentation/pages/bill/bill.component';
 import { ManagerComponent } from './presentation/pages/manager/manager.component';
 import { HomeComponent } from './presentation/pages/home/home.component';
 import { OrderPipelineComponent } from './presentation/pages/order-pipeline/order-pipeline.component';
+import { WaiterComponent } from './presentation/pages/waiter/waiter.component';
 
 const routes: Routes = [
   {path: 'order', component: OrderPipelineComponent},
+  {path: 'waiter', component: WaiterComponent},
   {path: 'home', component: HomeComponent},
   {path: 'manager', component: ManagerComponent},
   {path: 'bill', component: BillComponent},
