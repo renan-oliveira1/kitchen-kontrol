@@ -2,8 +2,9 @@
     padding-top: 100px;
     background-image: url("/assets/imgs/background4.png");
     width: 100%;
+    background-repeat: no-repeat;
+    background-size: cover;
     background-size: 100%;
-    height: 100%;
 }
 
 .billBox{
@@ -11,6 +12,7 @@
     background-color: #f5f2f2;
     border: 20px solid #b3b3b3;
     box-shadow: 50px;
+    padding-bottom: 50px;
     width: 1440px;
     height: auto;
     margin-left: auto;

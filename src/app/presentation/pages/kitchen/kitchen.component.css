@@ -39,6 +39,12 @@ img{
   min-height: 500px;
 }
 
+.box.requests p{
+  line-height: 25px;
+  text-align: center;
+}
+
+
 .box.preparing{
   margin-top: 25px;
   background-color: #928760;

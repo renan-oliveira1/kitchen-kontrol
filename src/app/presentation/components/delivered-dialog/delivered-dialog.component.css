@@ -32,13 +32,13 @@
 
 p{
     font-size: 25px;
-    line-height: 30px;
     font-family: 'Café Françoise', sans-serif;
 }
 
 .header{
     text-align: center;
-    font-size: 50px;
+    line-height: 40px;
+    font-size: 40px;
     font-family: 'Café Françoise', sans-serif;
 }
 

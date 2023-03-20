@@ -1,26 +1,28 @@
 <app-navbar></app-navbar>
 <div class="main text-center">
-    <div class="fakeComponentBox" *ngFor="let pizzaOrder of pizzaOrders">
-        <div class="row justify-content-center">
-            <div class="col-sm text-center">
-                <p>{{pizzaOrder.pizzas}}</p>
-                <img class="image-pizza" src="assets/imgs/pizzaCalabresa.jfif">
+    <div *ngFor="let pizzaOrder of pizzaOrders">
+        <div class="fakeComponentBox" *ngIf="pizzaOrder.status != ''" >
+            <div class="row justify-content-center">
+                <div class="col-sm text-center">
+                    <p>{{pizzaOrder.pizzas}}</p>
+                    <img class="image-pizza" src="assets/imgs/pizzaCalabresa.jfif">
+                </div>
+                
+                <div class="col-sm right" *ngIf="pizzaOrder.status == 'requested'">
+                    <img class="image-pipe" src="assets/imgs/requested.png" alt="">
+                </div>
+                
+                <div class="col-sm right" *ngIf="pizzaOrder.status == 'cooking'">
+                    <img class="image-pipe" src="assets/imgs/cooking.png" alt="">
+                </div>
+                
+                <div class="col-sm right" *ngIf="pizzaOrder.status == 'done'">
+                    <img class="image-pipe" src="assets/imgs/done.png" alt="">
+                </div>
+    
             </div>
-            
-            <div class="col-sm right" *ngIf="pizzaOrder.status == 'requested'">
-                <img class="image-pipe" src="assets/imgs/requested.png" alt="">
-            </div>
-            
-            <div class="col-sm right" *ngIf="pizzaOrder.status == 'cooking'">
-                <img class="image-pipe" src="assets/imgs/cooking.png" alt="">
-            </div>
-            
-            <div class="col-sm right" *ngIf="pizzaOrder.status == 'done'">
-                <img class="image-pipe" src="assets/imgs/done.png" alt="">
-            </div>
-
+    
         </div>
-
     </div>
     <app-footer></app-footer>
 </div>

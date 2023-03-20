@@ -135,7 +135,7 @@
       "pizzas": "Calabresa e Margeritta",
       "borders": "cheddar",
       "sizes": "Grande",
-      "status": "",
+      "status": "done",
       "table": "12",
       "observation": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras id pretium erat. Cras felis ipsum, euismod sit amet justo at, bibendum ultrices arcu. "
     },
@@ -144,7 +144,7 @@
       "pizzas": "Bacon",
       "borders": "catupiry",
       "sizes": "Brotinho",
-      "status": "",
+      "status": "requested",
       "table": "12",
       "observation": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras id pretium erat. Cras felis ipsum, euismod sit amet justo at, bibendum ultrices arcu. "
     },
@@ -153,7 +153,7 @@
       "pizzas": "Bacon",
       "borders": "catupiry",
       "sizes": "Brotinho",
-      "status": "",
+      "status": "requested",
       "table": "12",
       "observation": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras id pretium erat. Cras felis ipsum, euismod sit amet justo at, bibendum ultrices arcu. "
     },
@@ -162,7 +162,7 @@
       "pizzas": "Bacon",
       "borders": "catupiry",
       "sizes": "Brotinho",
-      "status": "done",
+      "status": "requested",
       "table": "12",
       "observation": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras id pretium erat. Cras felis ipsum, euismod sit amet justo at, bibendum ultrices arcu. "
     },
@@ -171,7 +171,7 @@
       "pizzas": "Abacaxi",
       "borders": "sem borda",
       "sizes": "Grande",
-      "status": "cooking",
+      "status": "requested",
       "table": "12",
       "observation": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras id pretium erat. Cras felis ipsum, euismod sit amet justo at, bibendum ultrices arcu. "
     }
