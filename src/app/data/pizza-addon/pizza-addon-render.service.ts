@@ -8,7 +8,7 @@ import { Addon } from 'src/app/domain/interfaces/Addon';
 })
 export class PizzaAddonRenderService {
   private baseUrl = 'http://localhost:8080/'
-  private bordersUrl = this.baseUrl + 'addons/'
+  private bordersUrl = this.baseUrl + 'addons'
 
   constructor(private http: HttpClient) { }
 

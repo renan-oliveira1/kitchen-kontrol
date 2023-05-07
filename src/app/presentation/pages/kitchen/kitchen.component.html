@@ -20,7 +20,7 @@
                     <div class="col-sm">
                     </div>
                     <div class="col-sm">
-                      <button class="rounded-circle" (click)="upgradeStatusOrder(pizza.id, pizza.status)">
+                      <button class="rounded-circle" (click)="upgradeStatusOrder(pizza.id, pizza.status, pizza.flavors[0].itemType)">
                       >
                       </button>
                     </div>
@@ -40,7 +40,7 @@
                     <div class="col-sm">
                     </div>
                     <div class="col-sm">
-                      <button class="rounded-circle" (click)="upgradeStatusOrder(drink.id, drink.status)">
+                      <button class="rounded-circle" (click)="upgradeStatusOrder(drink.id, drink.status, drink.item.itemType)">
                       >
                       </button>
                     </div>
@@ -64,7 +64,7 @@
                    <!-- <p> Observação: {{pizza.observation}}</p> -->
                   </div>
                   <div class="col-sm col-2">
-                    <button class="rounded-circle" (click)="upgradeStatusOrder(pizza.id, pizza.status)">
+                    <button class="rounded-circle" (click)="upgradeStatusOrder(pizza.id, pizza.status, pizza.flavors[0].itemType)">
                     >
                     </button>
                   </div>
@@ -81,7 +81,7 @@
                    <!-- <p> Observação: {{pizza.observation}}</p> -->
                   </div>
                   <div class="col-sm col-2">
-                    <button class="rounded-circle" (click)="upgradeStatusOrder(drink.id, drink.status)">
+                    <button class="rounded-circle" (click)="upgradeStatusOrder(drink.id, drink.status, drink.item.itemType)">
                     >
                     </button>
                   </div>

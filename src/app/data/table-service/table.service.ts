@@ -9,6 +9,7 @@ import { Table } from 'src/app/domain/interfaces/Table';
 export class TableService {
   private baseUrl = 'http://localhost:8080/'
   private pizzaOrderUrl = this.baseUrl + 'tables'
+  private patchUrl = ''
 
   constructor(private http: HttpClient) { }
 
@@ -20,16 +21,24 @@ export class TableService {
     return this.http.get<Table[]>(this.pizzaOrderUrl)
   }
 
-  upgradeStatus(id: string, statusItem: string){
+  upgradeStatus(id: string, statusItem: string, itemType: string){
     const status = {
       status: ''
     }
 
-    if (statusItem == "REQUESTED") status.status = "PREPARING"
-    else if (statusItem == "PREPARING") status.status = "DONE"
-    else if (statusItem = "DONE") status.status = "DELIVERED"
+    if(itemType === "PIZZA"){
+      this.patchUrl = this.baseUrl + 'pizzas/'
+    } else {
+      this.patchUrl = this.baseUrl + 'drinks/'
+    }
 
-    return this.http.patch(this.pizzaOrderUrl + id, status)
+    console.log(id)
+
+    if (statusItem === "REQUESTED") status.status = "PREPARING"
+    else if (statusItem === "PREPARING") status.status = "DONE"
+    else if (statusItem === "DONE") status.status = "DELIVERED"
+
+    return this.http.patch(this.patchUrl + id, status)
     
   }
 }

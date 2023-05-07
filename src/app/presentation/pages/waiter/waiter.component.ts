@@ -84,7 +84,7 @@ export class WaiterComponent {
     resultDialog.afterClosed().subscribe({
       next: (value) => {
         if(value == true){
-          this.upgradeStatusOrder(pizza.id, pizza.status)
+          this.upgradeStatusOrder(pizza.id, pizza.status, pizza.flavors[0].itemType)
         }
       }
     })
@@ -103,14 +103,14 @@ export class WaiterComponent {
     resultDialog.afterClosed().subscribe({
       next: (value) => {
         if(value == true){
-          this.upgradeStatusOrder(drink.id, drink.status)
+          this.upgradeStatusOrder(drink.id, drink.status, drink.item.itemType)
         }
       }
     })
   }
 
-  upgradeStatusOrder(id: number, status: string){
-    this.tableService.upgradeStatus(id.toString(), status).subscribe({
+  upgradeStatusOrder(id: number, status: string, itemType: string){
+    this.tableService.upgradeStatus(id.toString(), status, itemType).subscribe({
       next: (response) => {
         this.ngOnInit()
       },

@@ -42,6 +42,8 @@ export class KitchenComponent {
   }
 
   loadOrders(){
+    this.pizzas = []
+    this.drinks = []
     this.tableService.getTables().subscribe({
       next: (response) => {
         response.forEach(table => {
@@ -60,8 +62,8 @@ export class KitchenComponent {
     })
   }
 
-  upgradeStatusOrder(id: number, status: string){
-    this.tableService.upgradeStatus(id.toString(), status).subscribe({
+  upgradeStatusOrder(id: number, status: string, itemType: string){
+    this.tableService.upgradeStatus(id.toString(), status, itemType).subscribe({
       next: (response) => {
         this.ngOnInit()
       },
