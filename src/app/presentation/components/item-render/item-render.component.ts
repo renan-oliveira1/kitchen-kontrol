@@ -1,9 +1,9 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { CategoryItem } from 'src/app/core/CategoryItem';
-import { Item } from 'src/app/domain/interfaces/Item';
-import { PizzaAddon } from 'src/app/domain/interfaces/PizzaAddon';
-import { PizzaModifier } from 'src/app/domain/interfaces/PizzaModifier';
 import { ItemRenderService } from 'src/app/data/item-render/item-render.service';
+import { Addon } from 'src/app/domain/interfaces/Addon';
+import { ItemCardapio } from 'src/app/domain/interfaces/ItemCardapio';
+import { Size } from 'src/app/domain/interfaces/PizzaModifier';
 
 @Component({
   selector: 'app-item-render',
@@ -11,10 +11,11 @@ import { ItemRenderService } from 'src/app/data/item-render/item-render.service'
   styleUrls: ['./item-render.component.css']
 })
 export class ItemRenderComponent { 
-  pizzas: Item[] = []
-  drinks: Item[] = []
-  borders: PizzaAddon[] = []
-  size: PizzaModifier[] = []
+  pizzas: ItemCardapio[] = []
+  drinks: ItemCardapio[] = []
+  offers: ItemCardapio[] = []
+  borders: Addon[] = []
+  sizes: Size[] = []
 
   constructor(private itemRenderService: ItemRenderService){
   }
@@ -50,26 +51,31 @@ export class ItemRenderComponent {
     
     if(this.isHalf() || this.isWhole()) this.loadPizzas();
     
-    if(this.isDrinks()) this.loadDrinks();
+    else if(this.isDrinks()) this.loadDrinks();
     
     else this.loadOffers();
     
   }
 
   loadPizzas(){
-    this.itemRenderService.getPizzas().subscribe({
+    this.itemRenderService.getCardapio().subscribe({
       next: (response) => {
-        this.pizzas = response,
-        console.log(response)
+        this.pizzas = response.filter((obj) => 
+        obj.itemType === 'PIZZA'
+        )
+        console.log(this.pizzas)      
       },
       error: () => {}
     })
   }
 
   loadDrinks(){
-    this.itemRenderService.getDrinks().subscribe({
+    this.itemRenderService.getCardapio().subscribe({
       next: (response) => {
-        this.drinks = response
+        this.drinks = response.filter((obj) => 
+        obj.itemType === 'DRINK'          
+      )
+      console.log(this.drinks)
       },
       error: () => {}
     })
@@ -78,7 +84,7 @@ export class ItemRenderComponent {
   loadOffers(){
     this.itemRenderService.getOffers().subscribe({
       next: (response) => {
-        this.pizzas = response,
+        this.offers = response,
         console.log(response)
       },
       error: () => {}

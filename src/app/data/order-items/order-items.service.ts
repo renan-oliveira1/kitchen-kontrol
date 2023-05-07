@@ -1,23 +1,23 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { OrderItem } from 'src/app/domain/interfaces/OrderItem';
+import { Table } from 'src/app/domain/interfaces/Table';
 
 @Injectable({
   providedIn: 'root'
 })
 export class OrderItemsService {
-  private baseUrl = 'http://localhost:3000/'
-  private ordersUrl = this.baseUrl + 'orderItems/'
+  private baseUrl = 'http://localhost:8080/'
+  private ordersUrl = this.baseUrl + 'tables'
 
   constructor(private http: HttpClient) { }
 
-  getOrderItems(): Observable<OrderItem[]>{
-    return this.http.get<OrderItem[]>(this.ordersUrl)
+  getOrderItems(): Observable<Table[]>{
+    return this.http.get<Table[]>(this.ordersUrl)
   }
 
-  getOrderItemById(id : String): Observable<OrderItem>{
+  getTableById(id : String): Observable<Table>{
     const idUrl = this.ordersUrl + id
-    return this.http.get<OrderItem>(idUrl)
+    return this.http.get<Table>(idUrl)
   }
 }

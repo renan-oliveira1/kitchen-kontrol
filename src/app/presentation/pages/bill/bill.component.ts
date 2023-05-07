@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
-import { OrderItemsService } from 'src/app/data/order-items/order-items.service';
-import { OrderItem } from 'src/app/domain/interfaces/OrderItem';
+import { TableService } from 'src/app/data/table-service/table.service';
+import { Table } from 'src/app/domain/interfaces/Table';
+
 
 @Component({
   selector: 'app-bill',
@@ -9,21 +10,20 @@ import { OrderItem } from 'src/app/domain/interfaces/OrderItem';
   styleUrls: ['./bill.component.css']
 })
 export class BillComponent {
-
-  orderItems : OrderItem[] = []
+  table!: Table;
 
   orderTotal: number = 0
 
-  constructor(private dialogRef: MatDialog, private orderItemService : OrderItemsService){}
+  constructor(private dialogRef: MatDialog, private tableService : TableService){}
 
   ngOnInit(){
     this.loadItems()
   }
 
   loadItems(){
-    this.orderItemService.getOrderItems().subscribe({
+    this.tableService.getTableById().subscribe({
       next: (response) => {
-        this.orderItems = response,
+        this.table = response,
         this.getOrderTotal()
       },
       error: () => {}
@@ -35,7 +35,11 @@ export class BillComponent {
   }
 
   getOrderTotal(){
-    this.orderItems.forEach(item => {
+    this.table.pizzas.forEach(item => {
+      this.orderTotal += item.price
+    });
+
+    this.table.drinks.forEach(item => {
       this.orderTotal += item.price
     });
   }

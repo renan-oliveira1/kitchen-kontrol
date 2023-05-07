@@ -1,23 +1,23 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { PizzaAddon } from 'src/app/domain/interfaces/PizzaAddon';
+import { Addon } from 'src/app/domain/interfaces/Addon';
 
 @Injectable({
   providedIn: 'root'
 })
 export class PizzaAddonRenderService {
-  private baseUrl = 'http://localhost:3000/'
-  private bordersUrl = this.baseUrl + 'borders/'
+  private baseUrl = 'http://localhost:8080/'
+  private bordersUrl = this.baseUrl + 'addons/'
 
   constructor(private http: HttpClient) { }
 
-  getBorders(): Observable<PizzaAddon[]>{
-    return this.http.get<PizzaAddon[]>(this.bordersUrl)
+  getAddons(): Observable<Addon[]>{
+    return this.http.get<Addon[]>(this.bordersUrl)
   }
 
-  getBordersById(id : String): Observable<PizzaAddon>{
+  getAddonsById(id : String): Observable<Addon>{
     const idUrl = this.bordersUrl + id
-    return this.http.get<PizzaAddon>(idUrl)
+    return this.http.get<Addon>(idUrl)
   }
 }

@@ -8,17 +8,17 @@
             <div>
                 <img class="image-barman" src="assets/icons/barman.png">
             </div>
-            <div *ngFor="let pizzaOrder of pizzaOrders">
-                <div class="box-table" *ngIf="pizzaOrder.status == 'done'">
+            <div *ngFor="let pizza of pizzas">
+                <div class="box-table" *ngIf="pizza.status == 'done'">
 
                     <div class="row">
-                        <div class="col-sm align-self-center col-6" (click)="showDetailsDialog(pizzaOrder)">
-                          <p>{{pizzaOrder.pizzas}}</p>
+                        <div class="col-sm align-self-center col-6" (click)="showPizzaDetailsDialog(pizza)">
+                          <p>{{pizza}}</p>
                         </div>
-                        <div class="col-sm align-self-center" (click)="showDetailsDialog(pizzaOrder)">
-                          <p class="table-number">Mesa: {{pizzaOrder.table}}</p>
+                        <div class="col-sm align-self-center" (click)="showPizzaDetailsDialog(pizza)">
+                          <p class="table-number">Mesa: {{pizza.tableNumber}}</p>
                         </div>
-                        <div class="col-sm align-self-center" (click)="showDeliverDialog(pizzaOrder)">
+                        <div class="col-sm align-self-center" (click)="showPizzaDeliveryDialog(pizza)">
                           <img class=" image-deliver" src="assets/icons/DeliveredIcon.png" alt="">
                         </div>
                 </div>

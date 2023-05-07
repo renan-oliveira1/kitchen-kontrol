@@ -9,18 +9,38 @@
         <img src="assets/icons/PedidosCozinhaIcon.png">
         Pedidos
         <div class="box requests">
-          <div *ngFor="let pizzaOrder of pizzaOrders">
-            <div *ngIf="pizzaOrder.status == 'requested'">
+          <div *ngFor="let pizza of pizzas">
+            <div *ngIf="pizza.status == 'REQUESTED'">
               <div class="box-item-request text-center">
                 <div class="container">
                   <div class="row">
                     <div class="col-sm">
-                      <p>{{pizzaOrder.pizzas}}</p>
+                      <p>{{pizza.flavors[0].name}}</p>
                     </div>
                     <div class="col-sm">
                     </div>
                     <div class="col-sm">
-                      <button class="rounded-circle" (click)="upgradeStatusOrder(pizzaOrder.id, pizzaOrder.status)">
+                      <button class="rounded-circle" (click)="upgradeStatusOrder(pizza.id, pizza.status)">
+                      >
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div *ngFor="let drink of drinks">
+            <div *ngIf="drink.status == 'REQUESTED'">
+              <div class="box-item-request text-center">
+                <div class="container">
+                  <div class="row">
+                    <div class="col-sm">
+                      <p>{{drink.item.name}}</p>
+                    </div>
+                    <div class="col-sm">
+                    </div>
+                    <div class="col-sm">
+                      <button class="rounded-circle" (click)="upgradeStatusOrder(drink.id, drink.status)">
                       >
                       </button>
                     </div>
@@ -35,16 +55,33 @@
         <img src="assets/icons/cozinhandoMenuIcon.png">
         Preparando
         <div class="box preparing">
-          <div *ngFor="let pizzaOrder of pizzaOrders">
-            <div *ngIf="pizzaOrder.status == 'cooking'">
+          <div *ngFor="let pizza of pizzas">
+            <div *ngIf="pizza.status == 'PREPARING'">
               <div class="box-item-preparing">
                 <div class="row">
-                  <div (click)="openDialog(pizzaOrder)" class="col-sm col-10">
-                    <h3>ITEM:{{pizzaOrder.pizzas}}</h3><br>
-                   <p> Observação: {{pizzaOrder.observation}}</p>
+                  <div (click)="openDialog(pizza)" class="col-sm col-10">
+                    <h3>ITEM:{{pizza.flavors[0].name}}</h3><br>
+                   <!-- <p> Observação: {{pizza.observation}}</p> -->
                   </div>
                   <div class="col-sm col-2">
-                    <button class="rounded-circle" (click)="upgradeStatusOrder(pizzaOrder.id, pizzaOrder.status)">
+                    <button class="rounded-circle" (click)="upgradeStatusOrder(pizza.id, pizza.status)">
+                    >
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div *ngFor="let drink of drinks">
+            <div *ngIf="drink.status == 'PREPARING'">
+              <div class="box-item-preparing">
+                <div class="row">
+                  <div class="col-sm col-10">
+                    <h3>ITEM:{{drink.item.name}}</h3><br>
+                   <!-- <p> Observação: {{pizza.observation}}</p> -->
+                  </div>
+                  <div class="col-sm col-2">
+                    <button class="rounded-circle" (click)="upgradeStatusOrder(drink.id, drink.status)">
                     >
                     </button>
                   </div>
@@ -58,15 +95,22 @@
         <img src="assets/icons/entregueIcon.png">
         Finalizado
         <div class="box finished">
-          <div *ngFor="let pizzaOrder of pizzaOrders">
-            <div *ngIf="pizzaOrder.status == 'done'">
+          <div *ngFor="let pizza of pizzas">
+            <div *ngIf="pizza.status == 'DONE'">
               <div class="box-item-finished">
-                {{pizzaOrder.pizzas}} <br>
-                <p class="table-number">{{pizzaOrder.table}}</p>
+                {{pizza.flavors[0].name}} <br>
+                <p class="table-number">{{pizza.tableNumber}}</p>
               </div>
             </div>
           </div>
-        
+          <div *ngFor="let drink of drinks">
+            <div *ngIf="drink.status == 'DONE'">
+              <div class="box-item-finished">
+                {{drink.item.name}} <br>
+                <p class="table-number">{{drink.tableNumber}}</p>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>

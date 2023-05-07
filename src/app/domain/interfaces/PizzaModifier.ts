@@ -1,5 +1,5 @@
-export interface PizzaModifier{
+export interface Size{
     id: number,
-    name: string,
-    priceModifier: number
+    sizeLabel: string,
+    multiplier: number
 }

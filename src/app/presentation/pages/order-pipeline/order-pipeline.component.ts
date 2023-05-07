@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import { PizzaOrderService } from 'src/app/data/pizza-order/pizza-order.service';
-import { PizzaItem } from 'src/app/domain/interfaces/PizzaItem';
+import { TableService } from 'src/app/data/table-service/table.service';
+import { Table } from 'src/app/domain/interfaces/Table';
 
 @Component({
   selector: 'app-order-pipeline',
@@ -8,18 +8,17 @@ import { PizzaItem } from 'src/app/domain/interfaces/PizzaItem';
   styleUrls: ['./order-pipeline.component.css']
 })
 export class OrderPipelineComponent {
-  pizzaOrders: PizzaItem[] = []
-  constructor(private pizzaOrderService : PizzaOrderService){}
+  table!: Table;
+  constructor(private tableService : TableService){}
 
   ngOnInit(){
     this.loadPizzas()
   }
 
   loadPizzas(){
-    this.pizzaOrderService.getPizzaOrders().subscribe({
+    this.tableService.getTableById().subscribe({
       next: (response) => {
-        this.pizzaOrders = response,
-        console.log(response)
+        this.table = response
       },
       error: () => {}
     })

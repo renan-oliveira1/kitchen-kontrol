@@ -1,9 +1,9 @@
 import { Component } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
-import { PizzaOrderService } from 'src/app/data/pizza-order/pizza-order.service';
-import { PizzaItem } from 'src/app/domain/interfaces/PizzaItem';
 import { ModalComponent } from '../../components/modal/modal.component';
-import { DeliveredDialogComponent } from '../../components/delivered-dialog/delivered-dialog.component';
+import { TableService } from 'src/app/data/table-service/table.service';
+import { Pizza } from 'src/app/domain/interfaces/Pizza';
+import { Drink } from 'src/app/domain/interfaces/Drink';
 
 @Component({
   selector: 'app-waiter',
@@ -11,40 +11,72 @@ import { DeliveredDialogComponent } from '../../components/delivered-dialog/deli
   styleUrls: ['./waiter.component.css']
 })
 export class WaiterComponent {
-  pizzaOrders : PizzaItem[] = []
-  constructor(private dialogRef: MatDialog, private pizzaOrderService : PizzaOrderService){}
+  flavor : String = ''
+  pizzas : Pizza[] = []
+  drinks : Drink[] = []
+  constructor(private dialogRef: MatDialog, private tableService : TableService){}
 
   ngOnInit(){
-    this.loadItems()
+    this.loadOrders()
   }
 
-  loadItems(){
-    this.pizzaOrderService.getPizzaOrders().subscribe({
+  loadOrders(){
+    this.tableService.getTables().subscribe({
       next: (response) => {
+        response.forEach(table => {
+          table.pizzas.forEach(pizza => {
+            this.pizzas.push(pizza)
+          });
+          table.drinks.forEach(drink => {
+            this.drinks.push(drink)
+          })
+        })
+        console.log(this.pizzas)
         console.log(response)
-        this.pizzaOrders = response
       },
       error: () => {}
     })
   }
 
-  showDetailsDialog(pizzaItem: PizzaItem){
+  showPizzaDetailsDialog(pizza: Pizza){
+    if(pizza.flavors.length > 1){
+      this.flavor = pizza.flavors[0].name + '/' +  pizza.flavors[1].name
+    }
+    else{
+      this.flavor = pizza.flavors[0].name
+    }
     this.dialogRef.open(ModalComponent, {
       data: { 
         order : {
-          name : pizzaItem.pizzas,
-          observation : pizzaItem.observation
+          name : this.flavor
+          // observation : pizzaItem.observation
         }
       }
     });
   }
 
-  showDeliverDialog(pizzaItem: PizzaItem){
-    const resultDialog = this.dialogRef.open(DeliveredDialogComponent, {
+  showDrinkDetailsDialog(drink: Drink){
+    this.dialogRef.open(ModalComponent, {
       data: { 
         order : {
-          name : pizzaItem.pizzas,
-          table : pizzaItem.table
+          name : drink.item.name
+          // observation : pizzaItem.observation
+        }
+      }
+    });
+  }
+  showPizzaDeliveryDialog(pizza: Pizza){
+    if(pizza.flavors.length > 1){
+      this.flavor = pizza.flavors[0].name + '/' +  pizza.flavors[1].name
+    }
+    else{
+      this.flavor = pizza.flavors[0].name
+    }
+    const resultDialog = this.dialogRef.open(ModalComponent, {
+      data: { 
+        order : {
+          name : this.flavor,
+          table : pizza.tableNumber
         }
       }
     });
@@ -52,14 +84,33 @@ export class WaiterComponent {
     resultDialog.afterClosed().subscribe({
       next: (value) => {
         if(value == true){
-          this.upgradeStatusOrder(pizzaItem.id, pizzaItem.status)
+          this.upgradeStatusOrder(pizza.id, pizza.status)
+        }
+      }
+    })
+  }
+
+  showDrinkDeliveryDialog(drink: Drink){
+    const resultDialog = this.dialogRef.open(ModalComponent, {
+      data: { 
+        order : {
+          name : drink.item.name,
+          table : drink.tableNumber
+        }
+      }
+    });
+
+    resultDialog.afterClosed().subscribe({
+      next: (value) => {
+        if(value == true){
+          this.upgradeStatusOrder(drink.id, drink.status)
         }
       }
     })
   }
 
   upgradeStatusOrder(id: number, status: string){
-    this.pizzaOrderService.upgradeStatus(id.toString(), status).subscribe({
+    this.tableService.upgradeStatus(id.toString(), status).subscribe({
       next: (response) => {
         this.ngOnInit()
       },

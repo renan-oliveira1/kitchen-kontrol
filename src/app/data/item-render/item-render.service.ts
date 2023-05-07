@@ -1,40 +1,27 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
-import { Item } from 'src/app/domain/interfaces/Item';
+import { Observable} from 'rxjs';
+import { ItemCardapio } from 'src/app/domain/interfaces/ItemCardapio';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ItemRenderService {
-  private baseUrl = 'http://localhost:3000/' 
-  private pizzaUrl =  this.baseUrl + 'pizzas/' 
-  private drinksUrl = this.baseUrl + 'drinks/' 
+  private baseUrl = 'http://localhost:8080/cardapio' 
 
   constructor(private http: HttpClient) { }
 
-  getOffers(): Observable<Item[]>{
-    const fullUrl = this.baseUrl + 'pizzas'
-    return this.http.get<Item[]>(fullUrl)
+  getOffers(): Observable<ItemCardapio[]>{
+    return this.http.get<ItemCardapio[]>(this.baseUrl)
   }
 
-  getPizzas(): Observable<Item[]>{
-    const fullUrl = this.baseUrl + 'pizzas'
-    return this.http.get<Item[]>(fullUrl)
-  }
-  
-  getDrinks(): Observable<Item[]>{
-    const fullUrl = this.baseUrl + 'drinks'
-    return this.http.get<Item[]>(fullUrl)
+  getCardapio(): Observable<ItemCardapio[]>{
+    return this.http.get<ItemCardapio[]>(this.baseUrl)    
   }
 
-  getPizzaById(id : String): Observable<Item>{
-    const fullUrl = this.pizzaUrl + id
-    return this.http.get<Item>(fullUrl)
+  getItemById(id : String): Observable<ItemCardapio>{
+    const fullUrl = this.baseUrl + id
+    return this.http.get<ItemCardapio>(fullUrl)
   }
 
-  getDrinksById(id : String): Observable<Item>{
-    const fullUrl = this.drinksUrl + id
-    return this.http.get<Item>(fullUrl)
-  }
 }
