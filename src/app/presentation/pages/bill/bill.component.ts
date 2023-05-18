@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { TableService } from 'src/app/data/table-service/table.service';
+import { Pizza } from 'src/app/domain/interfaces/Pizza';
+import { Drink } from 'src/app/domain/interfaces/Drink';
 import { Table } from 'src/app/domain/interfaces/Table';
 
 
@@ -13,6 +15,8 @@ export class BillComponent {
   table!: Table;
 
   orderTotal: number = 0
+  orderPizzas: Pizza[] = []
+  orderDrinks: Drink[] = []
 
   constructor(private dialogRef: MatDialog, private tableService : TableService){}
 
@@ -24,6 +28,17 @@ export class BillComponent {
     this.tableService.getTableById().subscribe({
       next: (response) => {
         this.table = response,
+        response.pizzas.forEach(pizza => {
+          if(pizza.status !== "ONCART" && pizza.status !== "PAYED"){
+            this.orderPizzas.push(pizza)
+          }
+        }
+          )
+        response.drinks.forEach(drink => {
+          if(drink.status !== "ONCART" && drink.status !== "PAYED"){
+            this.orderDrinks.push(drink)
+          }
+        })
         this.getOrderTotal()
       },
       error: () => {}
@@ -35,12 +50,12 @@ export class BillComponent {
   }
 
   getOrderTotal(){
-    this.table.pizzas.forEach(item => {
-      this.orderTotal += item.price
+    this.orderPizzas.forEach(item => {
+      (this.orderTotal += item.price).toFixed(2)
     });
 
-    this.table.drinks.forEach(item => {
-      this.orderTotal += item.price
+    this.orderDrinks.forEach(item => {
+      (this.orderTotal += item.price).toFixed(2)
     });
   }
 

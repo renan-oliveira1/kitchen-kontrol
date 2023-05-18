@@ -13,7 +13,7 @@
     border: 20px solid #b3b3b3;
     box-shadow: 50px;
     padding-bottom: 50px;
-    width: 1440px;
+    width: auto;
     height: auto;
     margin-left: auto;
     margin-right: auto;
@@ -27,7 +27,7 @@
     text-align: center;
     font-family: 'Café Françoise', sans-serif;
     color: #000;
-    font-size: 40px;
+    font-size: 35px;
     line-height: 50px;
     text-decoration: underline;
 }
