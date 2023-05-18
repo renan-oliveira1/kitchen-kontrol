@@ -2,6 +2,6 @@ export interface ItemCardapio{
     id: number,
     name: string,
     description: string,
-    price: number,
+    basePrice: number,
     itemType: string
 }

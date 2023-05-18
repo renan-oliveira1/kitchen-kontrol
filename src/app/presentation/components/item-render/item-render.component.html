@@ -2,11 +2,26 @@
   <div *ngIf="isOffer()">
     <img class="logoAlert" src="assets/icons/alertaIcon.png" /> OFERTAS DO DIA <img class="logoAlert"
       src="assets/icons/alertaIcon.png" />
+      <div class="fakeComponentBox" *ngFor="let offer of offers">
+        <div class="d-flex">
+          <div>
+            <img class="image-pizza" src="assets/imgs/pizzaCalabresa.jfif">
+          </div>
+          <div class="item">
+            <p class="item-name">{{offer.name}}</p>
+            <p class="item-description">{{offer.description}}</p>
+            <p class="item-price">R$ {{offer.basePrice.toFixed(2)}}</p>
+          </div>
+          <div class="d-flex ms-auto align-items-center">
+            <img class="image-cart" src="assets/icons/carrinhoIcon.png">
+          </div>
+        </div>
+      </div>
   </div>
 
-  <div class="fakeComponentBox" *ngIf="isOffer()">
+  <!-- <div class="fakeComponentBox" *ngIf="isOffer()">
     <p></p>
-  </div>
+  </div> -->
 
   <div *ngIf="isWhole() || isHalf()">
     <div class="fakeComponentBox" *ngFor="let pizza of pizzas">

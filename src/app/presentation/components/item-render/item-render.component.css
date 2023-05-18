@@ -110,7 +110,15 @@
 }
 
 .item-description{
+  margin-top: 1.5rem;
   font-size: 25px;
+}
+
+.item-price{
+  margin-top: 1.5rem;
+  font-size: 30px;
+  font-weight: bold;
+  color: #b30000;
 }
 
 .image-cart{

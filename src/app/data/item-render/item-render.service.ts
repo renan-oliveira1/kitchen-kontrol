@@ -12,7 +12,7 @@ export class ItemRenderService {
   constructor(private http: HttpClient) { }
 
   getOffers(): Observable<ItemCardapio[]>{
-    return this.http.get<ItemCardapio[]>(this.baseUrl)
+    return this.http.get<ItemCardapio[]>(this.baseUrl+"/on-sale")
   }
 
   getCardapio(): Observable<ItemCardapio[]>{
