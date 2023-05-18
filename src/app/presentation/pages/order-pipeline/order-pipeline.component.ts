@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { TableService } from 'src/app/data/table-service/table.service';
+import { Drink } from 'src/app/domain/interfaces/Drink';
+import { Pizza } from 'src/app/domain/interfaces/Pizza';
 import { Table } from 'src/app/domain/interfaces/Table';
 
 @Component({
@@ -9,6 +11,9 @@ import { Table } from 'src/app/domain/interfaces/Table';
 })
 export class OrderPipelineComponent {
   table!: Table;
+  pizzasOrder: Pizza[] = []
+  drinksOrder: Drink[] = []
+
   constructor(private tableService : TableService){}
 
   ngOnInit(){
@@ -18,7 +23,18 @@ export class OrderPipelineComponent {
   loadPizzas(){
     this.tableService.getTableById().subscribe({
       next: (response) => {
-        this.table = response
+        this.table = response,
+        response.pizzas.forEach(pizza => {
+          if(pizza.status !== "ONCART" && pizza.status !== "PAYED"){
+            this.pizzasOrder.push(pizza)
+          }
+        }
+          )
+        response.drinks.forEach(drink => {
+          if(drink.status !== "ONCART" && drink.status !== "PAYED"){
+            this.drinksOrder.push(drink)
+          }
+        })
       },
       error: () => {}
     })

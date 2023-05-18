@@ -1,22 +1,53 @@
 <app-navbar></app-navbar>
-<!-- <div class="main text-center">
-    <div *ngFor="let pizzaOrder of pizzaOrders">
-        <div class="fakeComponentBox" *ngIf="pizzaOrder.status != ''" >
+<div class="main text-center">
+    <div *ngFor="let pizzaOrder of pizzasOrder">
+        <div class="fakeComponentBox">
             <div class="row justify-content-center">
                 <div class="col-sm text-center">
-                    <p>{{pizzaOrder.pizzas}}</p>
+                    <div  *ngIf="pizzaOrder.flavors.length <= 1; else doisSabores">
+                        <p>{{pizzaOrder.flavors[0].name}}</p>
+                    </div>
+                    <ng-template  #doisSabores>
+                        <p style="text-align: left;">1/2 {{pizzaOrder.flavors[0].name}} + 1/2 {{pizzaOrder.flavors[1].name}}</p>
+                    </ng-template>
                     <img class="image-pizza" src="assets/imgs/pizzaCalabresa.jfif">
                 </div>
                 
-                <div class="col-sm right" *ngIf="pizzaOrder.status == 'requested'">
+                <div class="col-sm right" *ngIf="pizzaOrder.status == 'REQUESTED'">
                     <img class="image-pipe" src="assets/imgs/requested.png" alt="">
                 </div>
                 
-                <div class="col-sm right" *ngIf="pizzaOrder.status == 'cooking'">
+                <div class="col-sm right" *ngIf="pizzaOrder.status == 'PREPARING'">
                     <img class="image-pipe" src="assets/imgs/cooking.png" alt="">
                 </div>
                 
-                <div class="col-sm right" *ngIf="pizzaOrder.status == 'done'">
+                <div class="col-sm right" *ngIf="pizzaOrder.status == 'DONE'">
+                    <img class="image-pipe" src="assets/imgs/done.png" alt="">
+                </div>
+    
+            </div>
+    
+        </div>
+    </div>
+    <div *ngFor="let drinkOrder of drinksOrder">
+        <div class="fakeComponentBox">
+            <div class="row justify-content-center">
+                <div class="col-sm text-center">
+                    <div>
+                        <p>{{drinkOrder.item.name}}</p>
+                    </div>
+                    <img class="image-pizza" src="assets/imgs/drink-coke.png">
+                </div>
+                
+                <div class="col-sm right" *ngIf="drinkOrder.status == 'REQUESTED'">
+                    <img class="image-pipe" src="assets/imgs/requested.png" alt="">
+                </div>
+                
+                <div class="col-sm right" *ngIf="drinkOrder.status == 'PREPARING'">
+                    <img class="image-pipe" src="assets/imgs/cooking.png" alt="">
+                </div>
+                
+                <div class="col-sm right" *ngIf="drinkOrder.status == 'DONE'">
                     <img class="image-pipe" src="assets/imgs/done.png" alt="">
                 </div>
     
@@ -25,7 +56,7 @@
         </div>
     </div>
     <app-footer></app-footer>
-</div> -->
+</div>
 <button class="waiterButton">
     <img class="float rounded-circle" src="/assets/icons/barman.png" alt="Image of barman, use to call barman">
 </button>
