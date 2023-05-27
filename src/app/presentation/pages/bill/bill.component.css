@@ -48,3 +48,35 @@
     width: 250px;
     height: auto;
 }
+
+.checkbox-container {
+    display: flex;
+    align-items: center;
+  }
+  
+  .checkbox-container input[name="checkbox"] {
+    width: 20px;
+    height: 20px;
+    margin-right: 10px;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    outline: none;
+    border: none;
+    background-color: transparent;
+  }
+  
+  .checkbox-container input[name="checkbox"]::before {
+    content: "";
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    border: 2px solid #000; 
+    border-radius: 3px;
+    background-color: #fff; 
+  }
+  
+  .checkbox-container input[name="checkbox"]:checked::before {
+    background-color: #8a2121; 
+  }
+  

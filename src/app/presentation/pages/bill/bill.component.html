@@ -2,14 +2,16 @@
 <div class="main">
     <div class="billBox">
         <div class="row" *ngFor="let orderPizza of orderPizzas">
-            <div class="col-sm"></div>
-            <div class="col-sm" *ngIf="orderPizza.flavors.length <= 1; else doisSabores">
+            <div class="col-sm checkbox-container"></div>
+            <div class="col-sm checkbox-container" *ngIf="orderPizza.flavors.length <= 1; else doisSabores">
+                <input name="checkbox" type="checkbox" style="margin-right: 10px;" />
                 <p style="text-align: left;">{{orderPizza.flavors[0].name}}</p>
             </div>
             <ng-template  #doisSabores>
-                <div class="col-sm">
+                <div class="col-sm checkbox-container">
+                    <input name="checkbox" type="checkbox" style="margin-right: 10px;" />
                     <p style="text-align: left;">1/2 {{orderPizza.flavors[0].name}} + 1/2 {{orderPizza.flavors[1].name}}</p>
-                </div>
+                  </div>
             </ng-template>
             <div class="col-sm">
                 <p>R${{orderPizza.price}}</p>
@@ -18,7 +20,8 @@
         </div>
         <div class="row" *ngFor="let orderDrink of orderDrinks">
             <div class="col-sm"></div>
-            <div class="col-sm">
+            <div class="col-sm checkbox-container">
+                <input name="checkbox" type="checkbox" style="margin-right: 10px;" />
                 <p style="text-align: left;">{{orderDrink.item.name}}</p>
             </div>
             <div class="col-sm">
