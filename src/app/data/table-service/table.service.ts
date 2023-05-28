@@ -8,17 +8,17 @@ import { Table } from 'src/app/domain/interfaces/Table';
 })
 export class TableService {
   private baseUrl = 'http://localhost:8080/'
-  private pizzaOrderUrl = this.baseUrl + 'tables'
+  private ordersUrl = this.baseUrl + 'tables'
   private patchUrl = ''
 
   constructor(private http: HttpClient) { }
 
   getTableById(): Observable<Table>{
-    return this.http.get<Table>(this.pizzaOrderUrl + '/1')
+    return this.http.get<Table>(this.ordersUrl + '/1')
   }
 
   getTables(): Observable<Table[]>{
-    return this.http.get<Table[]>(this.pizzaOrderUrl)
+    return this.http.get<Table[]>(this.ordersUrl)
   }
 
   upgradeStatus(id: string, statusItem: string, itemType: string){
@@ -40,5 +40,9 @@ export class TableService {
 
     return this.http.patch(this.patchUrl + id, status)
     
+  }
+
+  upgradeTable(table : Table){
+    return this.http.put<any>(this.ordersUrl, table);
   }
 }

@@ -58,6 +58,7 @@ export class BillComponent {
 
   getOrderTotal(){
     if(!this.isAnyitemSelected()){
+      console.log('sem itens selecionados')
       this.orderTotal = 0;
       this.orderPizzas.forEach(item => {
         (this.orderTotal += item.price).toFixed(2)
@@ -68,6 +69,7 @@ export class BillComponent {
       });
     }
     else{
+      console.log('COM itens selecionados')
       this.orderTotal = 0;
       this.pizzaPayingList.forEach(item => {
         (this.orderTotal += item.price).toFixed(2)
@@ -96,10 +98,25 @@ handleDrinkCheckboxChange(event: any, orderDrink: any) {
   this.getOrderTotal()
 }
 
-// payItems(){
-//   this.drinkPayingList.forEach(drinkOrder => {
-    
-//   });
-// }
+filterOrdersList(){
+  this.pizzaPayingList.forEach(payedPizza => {
+    this.orderPizzas = this.orderPizzas.filter(pizza => pizza !== payedPizza )
+  });
+  this.drinkPayingList.forEach(payedDrink => {
+    this.orderDrinks = this.orderDrinks.filter(drink => drink !== payedDrink )
+  });
+  this.pizzaPayingList = []
+  this.drinkPayingList = []
+  this.getOrderTotal()
+}
+
+payItems(){
+  //filtro as listas da tabela
+  this.filterOrdersList();
+  // //mando uma requisição para garantir persistência
+  // this.tableService.upgradeTable(this.table).subscribe()
+  // //recarrego a página
+  // this.loadItems()
+}
 
 }
