@@ -17,6 +17,8 @@ export class BillComponent {
   orderTotal: number = 0
   orderPizzas: Pizza[] = []
   orderDrinks: Drink[] = []
+  pizzaPayingList: Pizza[]= []
+  drinkPayingList: Drink[]= []
 
   constructor(private dialogRef: MatDialog, private tableService : TableService){}
 
@@ -49,14 +51,55 @@ export class BillComponent {
     console.log("abrindo dialog pay")
   }
 
-  getOrderTotal(){
-    this.orderPizzas.forEach(item => {
-      (this.orderTotal += item.price).toFixed(2)
-    });
-
-    this.orderDrinks.forEach(item => {
-      (this.orderTotal += item.price).toFixed(2)
-    });
+  isAnyitemSelected(){
+    if(this.drinkPayingList.length == 0 && this.pizzaPayingList.length == 0) return false
+    else return true
   }
+
+  getOrderTotal(){
+    if(!this.isAnyitemSelected()){
+      this.orderTotal = 0;
+      this.orderPizzas.forEach(item => {
+        (this.orderTotal += item.price).toFixed(2)
+      });
+  
+      this.orderDrinks.forEach(item => {
+        (this.orderTotal += item.price).toFixed(2)
+      });
+    }
+    else{
+      this.orderTotal = 0;
+      this.pizzaPayingList.forEach(item => {
+        (this.orderTotal += item.price).toFixed(2)
+      });
+  
+      this.drinkPayingList.forEach(item => {
+        (this.orderTotal += item.price).toFixed(2)
+      });
+    }
+  }
+
+handlePizzaCheckboxChange(event: any, orderPizza: any) {
+  if (event.target.checked) {
+    this.pizzaPayingList.push(orderPizza)
+  } else {
+    this.pizzaPayingList = this.pizzaPayingList.filter(pizza => pizza !== orderPizza);
+  }
+  this.getOrderTotal()
+}
+handleDrinkCheckboxChange(event: any, orderDrink: any) {
+  if (event.target.checked) {
+    this.drinkPayingList.push(orderDrink)
+  } else {
+    this.drinkPayingList = this.drinkPayingList.filter(pizza => pizza !== orderDrink);
+  }
+  this.getOrderTotal()
+}
+
+// payItems(){
+//   this.drinkPayingList.forEach(drinkOrder => {
+    
+//   });
+// }
 
 }
