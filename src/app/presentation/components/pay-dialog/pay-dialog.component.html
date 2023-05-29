@@ -1,0 +1,23 @@
+<div class="trasp">
+    <div class="box-item-preparing">
+        <h2 mat-dialog-title class="header">Pagar  os  seguintes  itens</h2>
+        <mat-dialog-content>
+            <div *ngFor="let pizza of data.payedList.payedPizzas">
+                <div *ngIf="pizza.flavors.length == 1">
+                    <p style="text-align: center;">{{pizza.flavors[0].name}} <b>R$ {{pizza.price}}</b></p>
+                </div>
+                <div *ngIf="pizza.flavors.length == 2">
+                    <p style="text-align: center;">1/2 {{pizza.flavors[0].name}} + 1/2 {{pizza.flavors[1].name}} <b>R$ {{pizza.price}}</b></p>
+                </div>
+            </div>
+            <div *ngFor="let drink of data.payedList.payedDrinks">
+                <p style="text-align: center;">{{drink.item.name}} <b>R$ {{drink.price}}</b></p>
+            </div>
+            <div>
+                <p style="color: rgb(110, 32, 32); font-size: 45px; text-align: right;">TOTAl: <b>{{data.payedList.total}}</b></p>
+            </div>
+        </mat-dialog-content>
+        <button mat-button class="button-cancel" [mat-dialog-close]="false">CANCELAR</button>
+        <button mat-button  class="button-confirm" [mat-dialog-close]="true">PAGAR</button>
+    </div>
+</div>

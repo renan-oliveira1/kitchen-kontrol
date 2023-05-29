@@ -32,31 +32,31 @@
 
 p{
     font-size: 25px;
+    line-height: 30px;
     font-family: 'Café Françoise', sans-serif;
 }
 
 .header{
-    text-align: center;
-    line-height: 40px;
-    font-size: 40px;
-    font-family: 'Café Françoise', sans-serif;
-}
-
-.button-confirm{
-    padding: 10px 30px;
-    font-size: 30px;
-    border: 2px solid #000;
-    border-radius: 20px;
+  line-height: 50px;
+  text-align: center;
+  font-size: 50px;
+  font-family: 'Café Françoise', sans-serif;
 }
 
 .button-cancel{
-    padding: 10px 30px;
-    font-size: 30px;
-    float: right;
-    border: 2px solid #000;
-    border-radius: 20px;
+  padding: 10px 30px;
+  font-size: 30px;
+  border: 2px solid #000;
+  border-radius: 20px;
+  align-content: center;
+  color: rgb(117, 57, 57);
 }
 
-.total{
-  font-size: 80px;
+.button-confirm{
+  padding: 10px 30px;
+  font-size: 30px;
+  float: right;
+  border: 2px solid #000;
+  border-radius: 20px;
+  color: rgb(45, 112, 45);
 }

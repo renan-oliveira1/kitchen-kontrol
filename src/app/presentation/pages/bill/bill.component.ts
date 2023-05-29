@@ -5,6 +5,7 @@ import { Pizza } from 'src/app/domain/interfaces/Pizza';
 import { Drink } from 'src/app/domain/interfaces/Drink';
 import { Table } from 'src/app/domain/interfaces/Table';
 import { OrderItemsService } from 'src/app/data/order-items/order-items.service';
+import { PayDialogComponent } from '../../components/pay-dialog/pay-dialog.component';
 
 
 @Component({
@@ -49,10 +50,37 @@ export class BillComponent {
       error: () => {}
     })
   }
+  showPayDialog(){
+    let pizzasRequest : Pizza[] = []
+    let drinksRequest : Drink[] = []
+    if(this.isAnyitemSelected()){
+      pizzasRequest = this.pizzaPayingList
+      drinksRequest = this.drinkPayingList
+    }
+    else{
+      pizzasRequest = this.orderPizzas
+      drinksRequest = this.orderDrinks
+    }
+    const resultDialog = this.dialogRef.open(PayDialogComponent, {
+      data: { 
+        payedList : {
+          payedPizzas : pizzasRequest,
+          payedDrinks : drinksRequest,
+          total : this.orderTotal.toFixed(2)
+        }
+      }
+    });
 
-  // openPayDialog(payedPizzas : Pizza[], payedDrinks : Drink[]){
-  // }
-
+    resultDialog.afterClosed().subscribe({
+      next: (value) => {
+        if(value == true){
+          this.payItems(pizzasRequest, drinksRequest);
+        }
+        else{
+        }
+      }
+    })
+  }
   isAnyitemSelected(){
     if(this.drinkPayingList.length == 0 && this.pizzaPayingList.length == 0) return false
     else return true
@@ -99,12 +127,13 @@ handleDrinkCheckboxChange(event: any, orderDrink: any) {
   this.getOrderTotal()
 }
 
-async updateOrdersStatus(): Promise<void> {
-  for (const payedPizza of this.pizzaPayingList) {
-    await this.tableService.upgradeStatus(payedPizza.id.toString(), payedPizza.status, payedPizza.flavors[0].itemType).toPromise();
+async updateOrdersStatus(pizzaPayed : Pizza[], drinksPayed : Drink[]): Promise<void> {
+  for (const pizza of pizzaPayed) {
+    console.log(pizza)
+    await this.tableService.upgradeStatus(pizza.id.toString(), pizza.status, pizza.flavors[0].itemType).toPromise();
   }
-  for (const payedDrink of this.drinkPayingList) {
-    await this.tableService.upgradeStatus(payedDrink.id.toString(), payedDrink.status, payedDrink.item.itemType).toPromise();
+  for (const drink of drinksPayed) {
+    await this.tableService.upgradeStatus(drink.id.toString(), drink.status, drink.item.itemType).toPromise();
   }
   this.pizzaPayingList = [];
   this.drinkPayingList = [];
@@ -112,8 +141,8 @@ async updateOrdersStatus(): Promise<void> {
   await this.loadItems();
 }
 
-async payItems(): Promise<void> {
-  await this.updateOrdersStatus();
+async payItems(pizzaPayed : Pizza[], drinksPayed : Drink[]): Promise<void> {
+  await this.updateOrdersStatus(pizzaPayed, drinksPayed);
 }
 
 }
