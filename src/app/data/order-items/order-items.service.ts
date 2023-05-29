@@ -2,6 +2,8 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Table } from 'src/app/domain/interfaces/Table';
+import { Pizza } from 'src/app/domain/interfaces/Pizza';
+import { Drink } from 'src/app/domain/interfaces/Drink';
 
 @Injectable({
   providedIn: 'root'
@@ -9,6 +11,8 @@ import { Table } from 'src/app/domain/interfaces/Table';
 export class OrderItemsService {
   private baseUrl = 'http://localhost:8080/'
   private ordersUrl = this.baseUrl + 'tables'
+  private pizzasUrl = this.baseUrl + 'pizzas'
+  private drinksUrl = this.baseUrl + 'drinks'
 
   constructor(private http: HttpClient) { }
 

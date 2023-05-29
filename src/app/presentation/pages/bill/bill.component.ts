@@ -4,6 +4,7 @@ import { TableService } from 'src/app/data/table-service/table.service';
 import { Pizza } from 'src/app/domain/interfaces/Pizza';
 import { Drink } from 'src/app/domain/interfaces/Drink';
 import { Table } from 'src/app/domain/interfaces/Table';
+import { OrderItemsService } from 'src/app/data/order-items/order-items.service';
 
 
 @Component({
@@ -20,13 +21,15 @@ export class BillComponent {
   pizzaPayingList: Pizza[]= []
   drinkPayingList: Drink[]= []
 
-  constructor(private dialogRef: MatDialog, private tableService : TableService){}
+  constructor(private dialogRef: MatDialog, private tableService : TableService, private orderItemsService : OrderItemsService){}
 
   ngOnInit(){
     this.loadItems()
   }
 
   loadItems(){
+    this.orderPizzas = []
+    this.orderDrinks = []
     this.tableService.getTableById().subscribe({
       next: (response) => {
         this.table = response,
@@ -47,9 +50,8 @@ export class BillComponent {
     })
   }
 
-  openPayDialog(){
-    console.log("abrindo dialog pay")
-  }
+  // openPayDialog(payedPizzas : Pizza[], payedDrinks : Drink[]){
+  // }
 
   isAnyitemSelected(){
     if(this.drinkPayingList.length == 0 && this.pizzaPayingList.length == 0) return false
@@ -58,7 +60,6 @@ export class BillComponent {
 
   getOrderTotal(){
     if(!this.isAnyitemSelected()){
-      console.log('sem itens selecionados')
       this.orderTotal = 0;
       this.orderPizzas.forEach(item => {
         (this.orderTotal += item.price).toFixed(2)
@@ -69,7 +70,6 @@ export class BillComponent {
       });
     }
     else{
-      console.log('COM itens selecionados')
       this.orderTotal = 0;
       this.pizzaPayingList.forEach(item => {
         (this.orderTotal += item.price).toFixed(2)
@@ -89,6 +89,7 @@ handlePizzaCheckboxChange(event: any, orderPizza: any) {
   }
   this.getOrderTotal()
 }
+
 handleDrinkCheckboxChange(event: any, orderDrink: any) {
   if (event.target.checked) {
     this.drinkPayingList.push(orderDrink)
@@ -98,25 +99,21 @@ handleDrinkCheckboxChange(event: any, orderDrink: any) {
   this.getOrderTotal()
 }
 
-filterOrdersList(){
-  this.pizzaPayingList.forEach(payedPizza => {
-    this.orderPizzas = this.orderPizzas.filter(pizza => pizza !== payedPizza )
-  });
-  this.drinkPayingList.forEach(payedDrink => {
-    this.orderDrinks = this.orderDrinks.filter(drink => drink !== payedDrink )
-  });
-  this.pizzaPayingList = []
-  this.drinkPayingList = []
-  this.getOrderTotal()
+async updateOrdersStatus(): Promise<void> {
+  for (const payedPizza of this.pizzaPayingList) {
+    await this.tableService.upgradeStatus(payedPizza.id.toString(), payedPizza.status, payedPizza.flavors[0].itemType).toPromise();
+  }
+  for (const payedDrink of this.drinkPayingList) {
+    await this.tableService.upgradeStatus(payedDrink.id.toString(), payedDrink.status, payedDrink.item.itemType).toPromise();
+  }
+  this.pizzaPayingList = [];
+  this.drinkPayingList = [];
+  this.getOrderTotal();
+  await this.loadItems();
 }
 
-payItems(){
-  //filtro as listas da tabela
-  this.filterOrdersList();
-  // //mando uma requisição para garantir persistência
-  // this.tableService.upgradeTable(this.table).subscribe()
-  // //recarrego a página
-  // this.loadItems()
+async payItems(): Promise<void> {
+  await this.updateOrdersStatus();
 }
 
 }

@@ -37,6 +37,7 @@ export class TableService {
     if (statusItem === "REQUESTED") status.status = "PREPARING"
     else if (statusItem === "PREPARING") status.status = "DONE"
     else if (statusItem === "DONE") status.status = "DELIVERED"
+    else if(statusItem === "DELIVERED") status.status = "PAYED"
 
     return this.http.patch(this.patchUrl + id, status)
     
