@@ -12,31 +12,33 @@ import { Drink } from 'src/app/domain/interfaces/Drink';
 })
 export class WaiterComponent {
   flavor : String = ''
-  pizzas : Pizza[] = []
-  drinks : Drink[] = []
+  pizzaOrders : Pizza[] = []
+  drinkOrders : Drink[] = []
   constructor(private dialogRef: MatDialog, private tableService : TableService){}
 
   ngOnInit(){
-    this.loadOrders()
+    // this.loadOrders()
   }
 
-  loadOrders(){
-    this.tableService.getTables().subscribe({
-      next: (response) => {
-        response.forEach(table => {
-          table.pizzas.forEach(pizza => {
-            this.pizzas.push(pizza)
-          });
-          table.drinks.forEach(drink => {
-            this.drinks.push(drink)
-          })
-        })
-        console.log(this.pizzas)
-        console.log(response)
-      },
-      error: () => {}
-    })
-  }
+  // loadOrders(){
+  //   this.tableService.getTableById().subscribe({
+  //     next: (response) => {
+  //       this.table = response,
+  //       response.pizzas.forEach(pizza => {
+  //         if(pizza.status !== "ONCART" && pizza.status !== "PAYED" && pizza.status !== "DELIVERED"){
+  //           this.pizzaOrders.push(pizza)
+  //         }
+  //       }
+  //         )
+  //       response.drinks.forEach(drink => {
+  //         if(drink.status !== "ONCART" && drink.status !== "PAYED" && drink.status !== "DELIVERED"){
+  //           this.drinkOrders.push(drink)
+  //         }
+  //       })
+  //     },
+  //     error: () => {}
+  //   })
+  // }
 
   showPizzaDetailsDialog(pizza: Pizza){
     if(pizza.flavors.length > 1){

@@ -35,13 +35,13 @@ export class BillComponent {
       next: (response) => {
         this.table = response,
         response.pizzas.forEach(pizza => {
-          if(pizza.status !== "ONCART" && pizza.status !== "PAYED"){
+          if(pizza.status == "DELIVERED"){
             this.orderPizzas.push(pizza)
           }
         }
           )
         response.drinks.forEach(drink => {
-          if(drink.status !== "ONCART" && drink.status !== "PAYED"){
+          if(drink.status == "DELIVERED"){
             this.orderDrinks.push(drink)
           }
         })

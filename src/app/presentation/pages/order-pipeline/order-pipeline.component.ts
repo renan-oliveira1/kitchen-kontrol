@@ -11,28 +11,28 @@ import { Table } from 'src/app/domain/interfaces/Table';
 })
 export class OrderPipelineComponent {
   table!: Table;
-  pizzasOrder: Pizza[] = []
-  drinksOrder: Drink[] = []
+  pizzasOrders: Pizza[] = []
+  drinksOrders: Drink[] = []
 
   constructor(private tableService : TableService){}
 
   ngOnInit(){
-    this.loadPizzas()
+    this.loadOrders()
   }
 
-  loadPizzas(){
+  loadOrders(){
     this.tableService.getTableById().subscribe({
       next: (response) => {
         this.table = response,
         response.pizzas.forEach(pizza => {
-          if(pizza.status !== "ONCART" && pizza.status !== "PAYED"){
-            this.pizzasOrder.push(pizza)
+          if(pizza.status !== "ONCART" && pizza.status !== "PAYED" && pizza.status !== "DELIVERED"){
+            this.pizzasOrders.push(pizza)
           }
         }
           )
         response.drinks.forEach(drink => {
-          if(drink.status !== "ONCART" && drink.status !== "PAYED"){
-            this.drinksOrder.push(drink)
+          if(drink.status !== "ONCART" && drink.status !== "PAYED" && drink.status !== "DELIVERED"){
+            this.drinksOrders.push(drink)
           }
         })
       },
