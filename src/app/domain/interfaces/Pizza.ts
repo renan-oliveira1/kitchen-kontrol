@@ -9,5 +9,4 @@ export interface Pizza{
     size: string,
     status: string
     tableNumber : number
-    // observation : string
 }
