@@ -1,23 +1,24 @@
 import { Addon } from "../interfaces/Addon";
 import { ItemCardapio } from "../interfaces/ItemCardapio";
 import { Pizza } from "../interfaces/Pizza";
+import { Size } from "../interfaces/PizzaModifier";
 
 
-export class PizzaImp implements Pizza {
-  id: number;
+export class PizzaInput {
+  id: number | null;
   price: number;
   flavors: ItemCardapio[];
   addons: Addon[];
-  size: string;
+  size: Size;
   status: string;
   tableNumber: number;
 
   constructor(
-    id: number,
+    id: number | null,
     price: number,
     flavors: ItemCardapio[],
     addons: Addon[],
-    size: string,
+    size: Size,
     status: string,
     tableNumber: number
   ) {

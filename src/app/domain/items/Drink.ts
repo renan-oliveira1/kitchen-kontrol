@@ -1,8 +1,8 @@
 import { Drink } from "../interfaces/Drink";
 import { ItemCardapio } from "../interfaces/ItemCardapio";
 
-export class DrinkImp implements Drink {
-  id: number;
+export class DrinkInput {
+  id: number | null;
   price: number;
   tableNumber: number;
   item: ItemCardapio;
@@ -10,7 +10,7 @@ export class DrinkImp implements Drink {
   status: string;
 
   constructor(
-    id: number,
+    id: number | null,
     price: number,
     tableNumber: number,
     item: ItemCardapio,

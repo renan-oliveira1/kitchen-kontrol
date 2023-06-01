@@ -11,6 +11,10 @@ import { ItemCardapio } from 'src/app/domain/interfaces/ItemCardapio';
 import { Pizza } from 'src/app/domain/interfaces/Pizza';
 import { Size } from 'src/app/domain/interfaces/PizzaModifier';
 import { Table } from 'src/app/domain/interfaces/Table';
+import { OrderItemsService } from 'src/app/data/order-items/order-items.service';
+import { PizzaInput } from 'src/app/domain/items/Pizza';
+import { DrinkInput } from 'src/app/domain/items/Drink';
+
 
 @Component({
   selector: 'app-order-dialog',
@@ -28,7 +32,8 @@ export class OrderDialogComponent implements OnInit {
   drinkOrder!: Drink;
   selectedSize!: Size;
   selectedAddons: Addon[] = [];
-  selectedItem!: ItemCardapio;
+  otherItem!: ItemCardapio;
+
 
   constructor(
     @Inject(MAT_DIALOG_DATA) public data: {
@@ -38,7 +43,8 @@ export class OrderDialogComponent implements OnInit {
     },
     private pizzaAddonService: PizzaAddonRenderService,
     private pizzaSizeService: PizzaModifierRenderService,
-    private itemService: ItemRenderService
+    private itemService: ItemRenderService,
+    private orderService: OrderItemsService
   ) {}
 
   ngOnInit() {
@@ -80,8 +86,35 @@ export class OrderDialogComponent implements OnInit {
     });
   }
 
+  //constroi uma requisição
   buildOrder() {
-    // Logic to build the order
+    if(this.data.item.itemType == 'PIZZA'){
+      const newPizzaOrder = new PizzaInput(null, this.calculateFinalPrice(), [this.data.item], this.selectedAddons, this.selectedSize, 'REQUESTED', 1);
+      //add this.pizzaService.insert(newPizzaOrder)
+    }
+    else{
+      const newDrinkOrder = new DrinkInput(null, this.calculateFinalPrice(), 1, this.data.item, true, 'REQUESTED');
+      //add this.drinkService.insert(newDrinkOrder)
+    }
+
+  }
+  
+  //fazer um checkbox (estou permitindo vários addons, mas caso queiram mudar é só mexer nessa lógica)
+  handleCkeckBoxAddon(addon : Addon){
+    if(this.selectedAddons.length == 0){
+      this.selectedAddons.push(addon)
+    }
+    else{
+      this.selectedAddons.filter(item => item !== addon);
+    }
+  }
+  //fazer um dropdown sla...
+  handleSizeSelection(size : Size){
+    this.selectedSize = size
+  }
+
+  calculateFinalPrice(){
+    return (this.data.item.basePrice * this.selectedSize.multiplier) + this.selectedAddons[0].price
   }
 }
 

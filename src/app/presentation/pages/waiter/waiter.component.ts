@@ -6,8 +6,7 @@ import { Drink } from 'src/app/domain/interfaces/Drink';
 import { OrderItemsService } from 'src/app/data/order-items/order-items.service';
 import { TableService } from 'src/app/data/table-service/table.service';
 import { DeliveredDialogComponent } from '../../components/delivered-dialog/delivered-dialog.component';
-import { PizzaImp } from 'src/app/domain/items/Pizza';
-import { DrinkImp } from 'src/app/domain/items/Drink';
+
 
 
 @Component({
@@ -47,7 +46,7 @@ export class WaiterComponent {
     })
   }
 
-  showDeliveryDialog(any: PizzaImp | Drink, itemType : String) {
+  showDeliveryDialog(any: Pizza | Drink, itemType : String) {
     const resultDialog = this.dialogRef.open(DeliveredDialogComponent, {
       data: {
         table: any.tableNumber.toString()
