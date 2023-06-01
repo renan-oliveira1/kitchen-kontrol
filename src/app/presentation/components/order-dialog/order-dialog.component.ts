@@ -90,18 +90,16 @@ export class OrderDialogComponent implements OnInit {
   buildOrder() {
     if(this.data.item.itemType == 'PIZZA'){
       const newPizzaOrder = new PizzaInput(null, this.calculateFinalPrice(), [this.data.item], [this.selectedAddon], this.selectedSize, 'REQUESTED', 1);
-      this.orderService.postPizzaOrder(newPizzaOrder)
+      this.orderService.postPizzaOrder(newPizzaOrder).subscribe()
       console.log(newPizzaOrder);
     }
     else{
       const newDrinkOrder = new DrinkInput(null, this.data.item.basePrice, 1, this.data.item, true, 'REQUESTED');
-      this.orderService.postDrinkOrder(newDrinkOrder)
+      this.orderService.postDrinkOrder(newDrinkOrder).subscribe()
       console.log(newDrinkOrder);
     }
   }
-  
-  //fazer um checkbox (estou permitindo vários addons, mas caso queiram mudar é só mexer nessa lógica)
-  handleCkeckBoxAddon(addon : Addon){
+  handleSelectAddon(addon : Addon){
     this.selectedAddon = addon
     console.log(this.selectedAddon)
   }
