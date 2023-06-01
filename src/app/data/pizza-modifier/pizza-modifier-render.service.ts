@@ -13,11 +13,11 @@ export class PizzaModifierRenderService {
 
   constructor(private http: HttpClient) { }
 
-  getBorders(): Observable<Size[]>{
+  getSizes(): Observable<Size[]>{
     return this.http.get<Size[]>(this.pizzaSizeUrl)
   }
 
-  getBordersById(id : String): Observable<Size>{
+  getSizesById(id : String): Observable<Size>{
     const idUrl = this.pizzaSizeUrl + id
     return this.http.get<Size>(idUrl)
   }

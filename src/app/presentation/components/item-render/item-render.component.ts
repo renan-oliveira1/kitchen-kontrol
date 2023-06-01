@@ -4,6 +4,8 @@ import { ItemRenderService } from 'src/app/data/item-render/item-render.service'
 import { Addon } from 'src/app/domain/interfaces/Addon';
 import { ItemCardapio } from 'src/app/domain/interfaces/ItemCardapio';
 import { Size } from 'src/app/domain/interfaces/PizzaModifier';
+import { OrderDialogComponent } from '../order-dialog/order-dialog.component';
+import { MatDialog } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-item-render',
@@ -17,7 +19,7 @@ export class ItemRenderComponent {
   borders: Addon[] = []
   sizes: Size[] = []
 
-  constructor(private itemRenderService: ItemRenderService){
+  constructor(private itemRenderService: ItemRenderService, private dialogRef : MatDialog){
   }
 
   ngOnInit(){
@@ -89,6 +91,24 @@ export class ItemRenderComponent {
       },
       error: () => {}
     })
+  }
+
+  openOrderDialog(item : ItemCardapio, itemType : String, table: String){
+    const resultDialog = this.dialogRef.open(OrderDialogComponent, {
+      data: {
+        item: item,
+        itemType: itemType,
+        table: table
+      }
+    });
+  
+    resultDialog.afterClosed().subscribe({
+      next: (value) => {
+        if (value === true) {
+          
+        }
+      }
+    });
   }
 
 }

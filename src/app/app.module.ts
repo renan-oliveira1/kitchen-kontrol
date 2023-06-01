@@ -22,6 +22,7 @@ import { ModalComponent } from './presentation/components/modal/modal.component'
 import { WaiterComponent } from './presentation/pages/waiter/waiter.component';
 import { DeliveredDialogComponent } from './presentation/components/delivered-dialog/delivered-dialog.component';
 import { PayDialogComponent } from './presentation/components/pay-dialog/pay-dialog.component';
+import { OrderDialogComponent } from './presentation/components/order-dialog/order-dialog.component';
 
 @NgModule({
   declarations: [
@@ -42,6 +43,7 @@ import { PayDialogComponent } from './presentation/components/pay-dialog/pay-dia
     WaiterComponent,
     DeliveredDialogComponent,
     PayDialogComponent,
+    OrderDialogComponent,
   ],
   imports: [
     BrowserModule,

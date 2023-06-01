@@ -17,7 +17,7 @@ import { DrinkImp } from 'src/app/domain/items/Drink';
 })
 export class WaiterComponent {
   flavor : String = ''
-  pizzaOrders : PizzaImp[] = []
+  pizzaOrders : Pizza[] = []
   drinkOrders : Drink[] = []
   constructor(private dialogRef: MatDialog, private ordersService : OrderItemsService, private tableService : TableService){}
 
@@ -60,7 +60,6 @@ export class WaiterComponent {
           if (itemType = "PIZZA") {
             this.upgradeStatusOrder(any.id, any.status, "PIZZA");
           } else {
-            console.log("é drink")
             this.upgradeStatusOrder(any.id, any.status, "DRINK");
           }
         }
