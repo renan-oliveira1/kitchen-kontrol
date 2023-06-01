@@ -4,6 +4,8 @@ import { Observable } from 'rxjs';
 import { Table } from 'src/app/domain/interfaces/Table';
 import { Pizza } from 'src/app/domain/interfaces/Pizza';
 import { Drink } from 'src/app/domain/interfaces/Drink';
+import { PizzaInput } from 'src/app/domain/items/Pizza';
+import { DrinkInput } from 'src/app/domain/items/Drink';
 
 @Injectable({
   providedIn: 'root'
@@ -23,5 +25,13 @@ export class OrderItemsService {
   getTableById(id : String): Observable<Table>{
     const idUrl = this.ordersUrl + id
     return this.http.get<Table>(idUrl)
+  }
+
+  postPizzaOrder(pizza : PizzaInput): Observable<Pizza>{
+    return this.http.post<Pizza>(this.pizzasUrl, pizza)
+  }
+
+  postDrinkOrder(drink : DrinkInput): Observable<Drink>{
+    return this.http.post<Drink>(this.drinksUrl, drink)
   }
 }

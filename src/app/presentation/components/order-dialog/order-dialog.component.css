@@ -1,62 +1,193 @@
-
 .confirm{
-    margin: 25px;
+  margin: 25px;
 }
 .modalSize{
-    height: auto;
-    width: auto;
+  height: auto;
+  width: auto;
 }
 
 .box-item-preparing{
-    background-color: #ebebeb;
-    max-width: 800px;
-    border: 5px solid #000;
-    padding: 20px;
-    height: auto;
-    font-family: 'Café Françoise', sans-serif;
-    color: #000;
-  }
-
-.mat-dialog-container {
-    overflow: hidden;
-  }
-  
-.mat-dialog-content {
-    border-radius: 10px;
-    padding: 20px;
-  }
-  
-.mat-dialog-container .mat-dialog-title {
-    border-radius: 10px 10px 0 0;
-  }
-
-p{
-    font-size: 25px;
-    line-height: 30px;
-    font-family: 'Café Françoise', sans-serif;
+  background-color: #ebebeb;
+  max-width: 800px;
+  border: 5px solid #000;
+  padding: 20px;
+  height: auto;
+  font-family: 'Café Françoise', sans-serif;
+  color: #000;
 }
 
-.header{
-  line-height: 50px;
-  text-align: center;
-  font-size: 50px;
+.mat-dialog-container {
+  overflow: hidden;
+}
+
+.mat-dialog-content {
+  border-radius: 10px;
+  padding: 20px;
+}
+
+.mat-dialog-container .mat-dialog-title {
+  border-radius: 10px 10px 0 0;
+}
+
+p{
+  font-size: 25px;
+  line-height: 30px;
   font-family: 'Café Françoise', sans-serif;
 }
 
+.header{
+line-height: 50px;
+text-align: center;
+font-size: 50px;
+font-family: 'Café Françoise', sans-serif;
+}
+
 .button-cancel{
-  padding: 10px 30px;
-  font-size: 30px;
-  border: 2px solid #000;
-  border-radius: 20px;
-  align-content: center;
-  color: rgb(117, 57, 57);
+padding: 10px 30px;
+font-size: 30px;
+border: 2px solid #000;
+border-radius: 20px;
+align-content: center;
+color: rgb(117, 57, 57);
 }
 
 .button-confirm{
-  padding: 10px 30px;
-  font-size: 30px;
-  float: right;
-  border: 2px solid #000;
-  border-radius: 20px;
-  color: rgb(45, 112, 45);
+padding: 10px 30px;
+font-size: 30px;
+float: right;
+border: 2px solid #000;
+border-radius: 20px;
+color: rgb(45, 112, 45);
+}
+
+.pizzaLogo{
+padding-top: 125px;
+padding-bottom: 30px;
+width: 300px;
+position:static;
+}
+
+.main{
+background-image: url("/assets/imgs/background4.png");
+}
+
+.pizzaIcon{
+width: 75px;
+position: relative;
+}
+
+.category{
+background-color: #b30000;
+border-color: #b30000;
+border-radius: 50px;
+}
+
+.categoryText p{
+white-space: nowrap;
+background-color: #b30000;
+border-color: #b30000;
+border-radius: 50px;
+}
+
+.imageIcon{
+width: 1000px;
+}
+
+.imgButton{
+border: none;
+background: transparent;
+
+}
+.imgButton img{
+height: 280px;
+
+}
+
+.float{
+position:fixed;
+width:60px;
+height:60px;
+bottom:40px;
+right:40px;
+border-radius:50px;
+box-shadow: 2px 2px 3px;
+}
+
+.waiterButton{
+position: absolute;
+background-color: #873E3E;
+border: none;
+}
+
+
+.box{
+background-color: #7f7f7f;
+border: 2px solid #000;
+opacity: 0.8;
+padding: 10px 50px 75px 50px;
+width: 100%;
+height: 100%;
+border-radius: 50px;
+font-family: 'Café Françoise', sans-serif;
+color: #000;
+font-size: 40px;
+text-align: center;
+}
+
+.offers{
+padding-top: 10px;
+padding-bottom: 50px;
+}
+
+.logoAlert{
+width: 60px;
+margin: 20px;
+top: 0;
+}
+
+.fakeComponentBox{
+background-color: #f5f2f2;
+border: 20px solid #b3b3b3;
+opacity: 0.9;
+padding: 20px;
+margin-top: 50px;
+margin-left: 50px;
+margin-right:  50px;
+margin-bottom: 50px;
+width: auto;
+height: auto;
+border-radius: 50px;
+font-family: 'Café Françoise', sans-serif;
+color: #000;
+font-size: 40px;
+text-align: start;
+}
+
+.image-pizza{
+border-radius: 25px;
+}
+
+.item{
+margin: 0px 10px;
+}
+
+.item-description{
+margin-top: 1.5rem;
+font-size: 25px;
+}
+
+.item-price{
+margin-top: 1.5rem;
+font-size: 30px;
+font-weight: bold;
+color: #b30000;
+}
+
+.image-cart{
+width: 50px;
+height: 50px;
+}
+
+.image-drink{
+width: 125px;
 }

@@ -2,9 +2,41 @@
     <div class="box-item-preparing">
       <h2 mat-dialog-title class="header">{{data.item.name}}</h2>
       <mat-dialog-content>
-        <!-- aqui ficam as informações -->
+        <div class="fakeComponentBox">
+          <div class="d-flex">
+            <div *ngIf="data.itemType =='PIZZA'">
+              <img class="image-drink" src="assets/imgs/pizzaCalabresa.jfif">
+            </div>
+            <div *ngIf="data.itemType =='DRINK'">
+              <img class="image-drink" src="assets/imgs/drink-coke.png">
+            </div>
+            <div class="item">
+              <p class="item-name">{{data.item.name}}</p>
+              <p class="item-description">{{data.item.description}}</p>
+            </div>
+            <!-- adicionar style para colocar a esquerda -->
+            <div *ngIf="data.itemType == 'PIZZA'">
+              <div>
+                <div *ngFor="let addon of pizzaAddons">
+                  <input type="radio" name="addon" value="{{addon}}" (click)="handleCkeckBoxAddon(addon)">
+                  <label>{{addon.name}}</label>
+                </div>
+              </div>
+              <!-- adicionar style para colocar a direita -->
+              <div>
+                <div>
+                  <label for="size">Tamanho</label>
+                  <div *ngFor="let size of pizzaSizes">
+                    <input type="radio" name="size" value="{{size}}" (click)="handleSelectSize(size)">
+                    <label>{{size.size}}</label>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </mat-dialog-content>
-      <button mat-button  class="button-confirm" [mat-dialog-close]="true" (click)="buildOrder()" >Sim</button>
+      <button mat-button  class="button-confirm" (click)="buildOrder()"[mat-dialog-close]="false">Sim</button>
       <button mat-button class="button-cancel" [mat-dialog-close]="false">Cancelar</button>
     </div>
   </div>

@@ -31,7 +31,7 @@ export class OrderDialogComponent implements OnInit {
   pizzaOrder!: Pizza;
   drinkOrder!: Drink;
   selectedSize!: Size;
-  selectedAddons: Addon[] = [];
+  selectedAddon!: Addon;;
   otherItem!: ItemCardapio;
 
 
@@ -89,32 +89,31 @@ export class OrderDialogComponent implements OnInit {
   //constroi uma requisição
   buildOrder() {
     if(this.data.item.itemType == 'PIZZA'){
-      const newPizzaOrder = new PizzaInput(null, this.calculateFinalPrice(), [this.data.item], this.selectedAddons, this.selectedSize, 'REQUESTED', 1);
-      //add this.pizzaService.insert(newPizzaOrder)
+      const newPizzaOrder = new PizzaInput(null, this.calculateFinalPrice(), [this.data.item], [this.selectedAddon], this.selectedSize, 'REQUESTED', 1);
+      this.orderService.postPizzaOrder(newPizzaOrder)
+      console.log(newPizzaOrder);
     }
     else{
-      const newDrinkOrder = new DrinkInput(null, this.calculateFinalPrice(), 1, this.data.item, true, 'REQUESTED');
-      //add this.drinkService.insert(newDrinkOrder)
+      const newDrinkOrder = new DrinkInput(null, this.data.item.basePrice, 1, this.data.item, true, 'REQUESTED');
+      this.orderService.postDrinkOrder(newDrinkOrder)
+      console.log(newDrinkOrder);
     }
-
   }
   
   //fazer um checkbox (estou permitindo vários addons, mas caso queiram mudar é só mexer nessa lógica)
   handleCkeckBoxAddon(addon : Addon){
-    if(this.selectedAddons.length == 0){
-      this.selectedAddons.push(addon)
-    }
-    else{
-      this.selectedAddons.filter(item => item !== addon);
-    }
-  }
-  //fazer um dropdown sla...
-  handleSizeSelection(size : Size){
-    this.selectedSize = size
+    this.selectedAddon = addon
+    console.log(this.selectedAddon)
   }
 
+  handleSelectSize(size : Size){
+    this.selectedSize = size
+    console.log(this.selectedSize);
+  }
+
+
   calculateFinalPrice(){
-    return (this.data.item.basePrice * this.selectedSize.multiplier) + this.selectedAddons[0].price
+    return (this.data.item.basePrice * this.selectedSize.multiplier) + this.selectedAddon.price
   }
 }
 

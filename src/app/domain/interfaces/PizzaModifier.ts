@@ -1,5 +1,5 @@
 export interface Size{
     id: number,
-    sizeLabel: string,
+    size: string,
     multiplier: number
 }
