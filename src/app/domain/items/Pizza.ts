@@ -11,7 +11,7 @@ export class PizzaInput {
   addons: Addon[];
   size: Size;
   status: string;
-  tableNumber: number;
+  table_id: number;
 
   constructor(
     id: number | null,
@@ -20,7 +20,7 @@ export class PizzaInput {
     addons: Addon[],
     size: Size,
     status: string,
-    tableNumber: number
+    table_id: number
   ) {
     this.id = id;
     this.price = price;
@@ -28,6 +28,6 @@ export class PizzaInput {
     this.addons = addons;
     this.size = size;
     this.status = status;
-    this.tableNumber = tableNumber;
+    this.table_id = table_id;
   }
 }
