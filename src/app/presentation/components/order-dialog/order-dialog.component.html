@@ -1,34 +1,32 @@
 <div class="trasp">
-    <div class="box-item-preparing">
+    <div class="box-item-preparing dialog-container ">
       <h2 mat-dialog-title class="header">{{data.item.name}}</h2>
       <mat-dialog-content>
         <div class="fakeComponentBox">
-          <div class="d-flex">
+          <div class="d-flex justify-content-center">
             <div *ngIf="data.itemType =='PIZZA'">
-              <img class="image-drink" src="assets/imgs/pizzaCalabresa.jfif">
+              <img style="border-radius: 35px; width: 200px; height: auto;" class="image-drink mx-auto" src="assets/imgs/pizzaCalabresa.jfif">
             </div>
             <div *ngIf="data.itemType =='DRINK'">
-              <img class="image-drink" src="assets/imgs/drink-coke.png">
+              <img style="border-radius: 35px; width: 200px; height: auto;" class="image-drink mx-auto" src="assets/imgs/drink-coke.png">
             </div>
-            <div class="item">
-              <p class="item-name">{{data.item.name}}</p>
-              <p class="item-description">{{data.item.description}}</p>
-            </div>
-            <!-- adicionar style para colocar a esquerda -->
-            <div *ngIf="data.itemType == 'PIZZA'">
+          </div>
+          
+          <div>
+            <div class="d-flex justify-content-between" *ngIf="data.itemType == 'PIZZA'">
               <div>
+                <label style="font-size: 20px;" for="size">Bordas</label>
                 <div *ngFor="let addon of pizzaAddons">
                   <input type="radio" name="addon" value="{{addon}}" (click)="handleSelectAddon(addon)">
-                  <label>{{addon.name}}</label>
+                  <label style="font-size: 15px;">{{addon.name}}</label>
                 </div>
               </div>
-              <!-- adicionar style para colocar a direita -->
               <div>
                 <div>
-                  <label for="size">Tamanho</label>
+                  <label style="font-size: 20px;" for="size">Tamanho</label>
                   <div *ngFor="let size of pizzaSizes">
                     <input type="radio" name="size" value="{{size}}" (click)="handleSelectSize(size)">
-                    <label>{{size.size}}</label>
+                    <label style="font-size: 15px;">{{size.size}}</label>
                   </div>
                 </div>
               </div>
