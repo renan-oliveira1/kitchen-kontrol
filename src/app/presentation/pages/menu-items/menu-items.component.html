@@ -1,0 +1,43 @@
+<div class="main">
+    <div class="container">
+      <div class="d-flex justify-content-center">
+        <img class="pizzaLogo" src="assets/icons/pizzaPedacosIcon.png" />
+      </div>
+  
+      <div class="d-flex flex-row justify-content-evenly">
+        <div>
+          <button class="imgButton" (click)="changeToWhole()">
+            <img src="assets/buttons/pizzaInteira.png" />
+          </button>
+        </div>
+        <div>
+          <button class="imgButton" (click)="changeToDrinks()">
+            <img src="assets/buttons/bebidas.png" />
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+      <div>
+          <div class="newItem">
+              <form>
+                  <p>ADICIONAR {{isDrinks() ? 'DRINK' : 'PIZZA'}}</p>
+                  <label for="nome">Nome:</label>
+                  <input type="text" id="nome" name="nome" [(ngModel)]="itemCardapio.name" required><br><br>
+              
+                  <label for="descricao">Descrição:</label>
+                  <input type="text" id="descricao" name="descricao" [(ngModel)]="itemCardapio.description" required><br><br>
+              
+                  <label for="basePrice">Preço Base:</label>
+                  <input type="number" id="basePrice" name="basePrice" [(ngModel)]="itemCardapio.basePrice" required><br><br>
+                </form>
+                <button (click)="adicionarItem()">Salvar</button>
+          </div>
+      </div>
+      
+      <app-item-render [categoryItem] ="currentCategoryItem" [reloadComponent]="reloadRender" [managerMode]="true"></app-item-render>
+    </div>
+  
+  
+  </div>

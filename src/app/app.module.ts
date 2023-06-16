@@ -23,6 +23,7 @@ import { WaiterComponent } from './presentation/pages/waiter/waiter.component';
 import { DeliveredDialogComponent } from './presentation/components/delivered-dialog/delivered-dialog.component';
 import { PayDialogComponent } from './presentation/components/pay-dialog/pay-dialog.component';
 import { OrderDialogComponent } from './presentation/components/order-dialog/order-dialog.component';
+import { MenuItemsComponent } from './presentation/pages/menu-items/menu-items.component';
 
 @NgModule({
   declarations: [
@@ -44,6 +45,7 @@ import { OrderDialogComponent } from './presentation/components/order-dialog/ord
     DeliveredDialogComponent,
     PayDialogComponent,
     OrderDialogComponent,
+    MenuItemsComponent,
   ],
   imports: [
     BrowserModule,

@@ -7,6 +7,7 @@ import { ManagerComponent } from './presentation/pages/manager/manager.component
 import { HomeComponent } from './presentation/pages/home/home.component';
 import { OrderPipelineComponent } from './presentation/pages/order-pipeline/order-pipeline.component';
 import { WaiterComponent } from './presentation/pages/waiter/waiter.component';
+import { MenuItemsComponent } from './presentation/pages/menu-items/menu-items.component';
 
 const routes: Routes = [
   {path: 'order', component: OrderPipelineComponent},
@@ -16,6 +17,7 @@ const routes: Routes = [
   {path: 'bill', component: BillComponent},
   {path: 'kitchen', component: KitchenComponent},
   {path: 'menu', component: MenuComponent},
+  {path: 'cardapio', component: MenuItemsComponent},
   {path: '', redirectTo:'menu', pathMatch:'full' },
   {path: '**', redirectTo:'menu', pathMatch:'full'}
 

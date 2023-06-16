@@ -6,6 +6,7 @@ import { ItemCardapio } from 'src/app/domain/interfaces/ItemCardapio';
 import { Size } from 'src/app/domain/interfaces/PizzaModifier';
 import { OrderDialogComponent } from '../order-dialog/order-dialog.component';
 import { MatDialog } from '@angular/material/dialog';
+import { switchMap } from 'rxjs';
 
 @Component({
   selector: 'app-item-render',
@@ -23,14 +24,18 @@ export class ItemRenderComponent {
   }
 
   ngOnInit(){
-    this.loadItems();
+    this.loadItems();7
+    console.log(this.managerMode);
   }
 
   ngOnChanges(){
     this.loadItems();
+    this.reloadComponent = false;
   }
 
   @Input() categoryItem: CategoryItem = CategoryItem.Offers
+  @Input() reloadComponent: boolean = false;
+  @Input() managerMode: boolean = false;
 
   isOffer(): boolean{
     return (this.categoryItem == CategoryItem.Offers)
@@ -75,7 +80,7 @@ export class ItemRenderComponent {
     this.itemRenderService.getCardapio().subscribe({
       next: (response) => {
         this.drinks = response.filter((obj) => 
-        obj.itemType === 'DRINK'          
+        obj.itemType === 'DRINK'        
       )
       console.log(this.drinks)
       },
@@ -108,6 +113,28 @@ export class ItemRenderComponent {
           
         }
       }
+    });
+  }
+
+  removeItem(any: any){
+    any.imgUrl = 'INVISIBLE'
+    //colocar popup de confirmação
+    this.itemRenderService.disableItem(any).pipe(
+      switchMap(async () => this.loadItems())
+    )
+    .subscribe(() => {
+      
+    });
+  }
+
+  turnVisibleItem(any: any){
+    any.imgUrl = 'VISIBLE'
+    //colocar popup de confirmação
+    this.itemRenderService.disableItem(any).pipe(
+      switchMap(async () => this.loadItems())
+    )
+    .subscribe(() => {
+      
     });
   }
 
