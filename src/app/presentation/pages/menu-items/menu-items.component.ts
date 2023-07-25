@@ -14,7 +14,7 @@ export class MenuItemsComponent {
 
   constructor(private itemService : ItemRenderService){}
 
-  itemCardapio: ItemCardapioImp = new ItemCardapioImp('', '', 0, 'PIZZA');
+  itemCardapio: ItemCardapioImp = new ItemCardapioImp('', '', 0, 'PIZZA', 'VISIBLE');
 
   currentCategoryItem: CategoryItem = CategoryItem.Whole
   reloadRender : boolean = false
@@ -32,7 +32,7 @@ export class MenuItemsComponent {
   }
 
   resetForm(): void{
-    this.itemCardapio = new ItemCardapioImp('', '', 0, 'PIZZA');
+    this.itemCardapio = new ItemCardapioImp('', '', 0, 'PIZZA', 'VISIBLE');
     this.reloadRender = !this.reloadRender;
   }
 
@@ -59,6 +59,7 @@ export class MenuItemsComponent {
     else {
       this.itemCardapio.itemType = 'DRINK'
     }
+    
     this.itemService.postItem(this.itemCardapio)
   .pipe(
     switchMap(async () => this.resetForm())
